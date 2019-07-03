@@ -6,7 +6,7 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/01 15:29:22 by jhansen           #+#    #+#             */
-/*   Updated: 2019/07/03 10:54:04 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/07/03 14:20:37 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 #include <stdio.h>
 
-void	ft_strartprocess(int *stacka)
+void	start_process(t_list *stacka, t_list *stackb)
 {
 	int		gnlret;
 	char	*command;
@@ -44,39 +44,44 @@ void	ft_strartprocess(int *stacka)
 			ft_rrb(&stacka);
 		else if (command = "rrr")
 			ft_rrr(&stacka);
-		else ()
+		else
+		{
+			write(1, "Error\n", 6);
+			exit;
 
+		}
 	}
 }
 
 int		main(int argc, char **argv)
 {
-	int		stacka[argc - 1];
+	t_list	*stacka;
+	t_list	*stackb;
 	int		i;
-//	int		j;
-	int		count;
 
-	count = 0;
 	if (argc < 2)
 		exit(0) ;
 	else
 	{
 		i = 1;
+		stacka = (t_list)malloc(sizeof(t_list));
+		stackb = (t_list)malloc(sizeof(t_list));
 		while (argc-- > 1)
-			stacka[count++] = ft_atoi(argv[i++]);
+		{
+			check_errors(&stacka, argv[i]);
+			stacka->num = ft_atoi(argv[i++]);
+			stacka->next = (t_list)malloc(sizeof(t_list));
+			stacka = stack->next;
+		}
+		stacka->next = NULL;
 	}
-
-//	j = 0;
-//	while (j < count)
-//		printf("%d\n", stacka[j++]);
-//	return (0);
-// PRINT STACKA FOR CHECK PURPOSES
-
 
 //use gnl to get commands line by line
 //perform commands obtained line by line to stacka var
 //then iterate through stacka and see if it's sorted
 //return based on sorted outcome
 
-	ft_startprocess(&stacka);
+	start_process(&stacka, &stackb);
+	stack_check(&stacka, &stackb);
+	return (0);
 }
