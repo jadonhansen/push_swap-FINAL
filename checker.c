@@ -6,15 +6,13 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/01 15:29:22 by jhansen           #+#    #+#             */
-/*   Updated: 2019/07/02 15:49:31 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/07/03 10:54:04 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include "libft/libft.h"
+#include "push_swap.h"
 
 #include <stdio.h>
-#include <string.h>
 
 void	ft_strartprocess(int *stacka)
 {
@@ -67,7 +65,6 @@ int		main(int argc, char **argv)
 		while (argc-- > 1)
 			stacka[count++] = ft_atoi(argv[i++]);
 	}
-
 
 //	j = 0;
 //	while (j < count)
