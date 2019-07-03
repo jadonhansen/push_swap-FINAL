@@ -6,33 +6,33 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/03 10:36:22 by jhansen           #+#    #+#             */
-/*   Updated: 2019/07/03 10:37:49 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/07/03 11:32:15 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_ra()
+void	ft_ra(t_list stacka)
 {
 
 }
 
-void	ft_rb()
+void	ft_rb(t_list stackb)
 {
 
 }
 
-void	ft_rr()
+void	ft_rr(t_list stacka, t_list stackb)
 {
 
 }
 
-void	ft_rra()
+void	ft_rra(t_list stacka)
 {
 
 }
 
-void	ft_rrb()
+void	ft_rrb(t_list stackb)
 {
 
 }

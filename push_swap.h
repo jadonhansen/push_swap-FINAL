@@ -6,7 +6,7 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/03 10:38:41 by jhansen           #+#    #+#             */
-/*   Updated: 2019/07/03 10:54:30 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/07/03 11:31:19 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,11 @@
 # include "get_next_line.h"
 # include <stdlib.h>
 
-typedef struct		s_struct
+typedef struct		s_list
 {
 	int				num;
 	struct s_struct	*next;
 	struct s_struct	*prev;
-}					t_struct;
+}					t_list;
 
 #endif
