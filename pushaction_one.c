@@ -6,13 +6,13 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/03 10:33:01 by jhansen           #+#    #+#             */
-/*   Updated: 2019/07/04 12:55:41 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/07/04 15:53:28 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_sa(t_list *stacka)
+void	ft_sa(t_list **stacka)
 {
 	int temp;
 	int	hold;
@@ -27,7 +27,7 @@ void	ft_sa(t_list *stacka)
 	}
 }
 
-void	ft_sb(t_list *stackb)
+void	ft_sb(t_list **stackb)
 {
 	int temp;
 	int hold;
@@ -42,57 +42,47 @@ void	ft_sb(t_list *stackb)
 	}
 }
 
-void	ft_ss(t_list *stacka, t_list *stackb)
+void	ft_ss(t_list **stacka, t_list **stackb)
 {
 	if (stacka != NULL && stackb != NULL)
 	{
-		ft_sa(stacka);
-		ft_sb(stackb);
+		ft_sa(*stacka);
+		ft_sb(*stackb);
 	}
 }
 
-void	ft_pa(t_list *stacka, t_list *stackb)
+void	ft_pa(t_list **stacka, t_list **stackb)
 {
 	t_list	*topb;
-	t_list	*head;
 	
-	if (stacka != NULL)
-		head = stacka;
-	if (stackb->num != NULL)
+	if (*stackb != NULL)
 	{
 		topb = stackb;
-		if (stackb->next == NULL)
-		{
-			free(stackb);
-		}
-		topb->next = *head;
+		topb->next = *stacka;
 		topb->prev = NULL;
-		if ((*head) != NULL)
-			(*head)->prev = topb;
-		*head = topb;
-		del_node();	//deleting from stack b
+		if ((*stacka) != NULL)
+			(*stacka)->prev = topb;
+		*stacka = topb;
+		stackb = stackb->next;
+		return (*stacka);
 	}
+	return ;
 }
 
-void	ft_pb(t_list stacka, t_list stackb)
+void	ft_pb(t_list **stacka, t_list **stackb)
 {
 	t_list *topa;
-	t_list *head;
 
-	if (stackb != NULL)
-		head = stackb;
-	if (stacka->num != NULL)
+	if (*stacka != NULL)
 	{
-		topa = stacka;
-		if (stacka->next == NULL)
-		{
-			free(stacka);
-		}
-		topa->next = *head;
+		topa = *stacka;
+		topa->next = *stackb;
 		topa->prev = NULL;
-		if ((*head) != NULL)
-			(*head)->prev = topa;
-		*head = topa;
-		del_node(); //deleting fromm stack a
+		if ((*stackb) != NULL)
+			(*stackb)->prev = topa;
+		*stackb = topa;
+		*stacka = (*stacka)->next;
+		return (*stackb);
 	}
+	return ;
 }

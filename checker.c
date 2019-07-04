@@ -6,7 +6,7 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/01 15:29:22 by jhansen           #+#    #+#             */
-/*   Updated: 2019/07/03 14:20:37 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/07/04 15:45:42 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,32 +23,31 @@ void	start_process(t_list *stacka, t_list *stackb)
 	while ((gnlret = get_next_line(0, &command)) > 0)
 	{
 		if (command = "sa")
-			ft_sa(&stacka);
+			ft_sa(&stacka, &stackb);
 		else if (command = "sb")
-			ft_sb(&stacka);
+			ft_sb(&stacka, &stackb);
 		else if (command = "ss")
-			ft_ss(&stacka);
+			ft_ss(&stacka, &stackb);
 		else if (command = "pa")
-			ft_pa(&stacka);
+			ft_pa(&stacka, &stackb);
 		else if (command = "pb")
-			ft_pb(&stacka);
+			ft_pb(&stacka, &stackb);
 		else if (command = "ra")
-			ft_ra(&stacka);
+			ft_ra(&stacka, &stackb);
 		else if (command = "rb")
-			ft_rb(&stacka);
+			ft_rb(&stacka, &stackb);
 		else if (command = "rr")
-			ft_rr(&stacka);
+			ft_rr(&stacka, &stackb);
 		else if (command = "rra")
-			ft_rra(&stacka);
+			ft_rra(&stacka, &stackb);
 		else if (command = "rrb")
-			ft_rrb(&stacka);
+			ft_rrb(&stacka, &stackb);
 		else if (command = "rrr")
-			ft_rrr(&stacka);
+			ft_rrr(&stacka, &stackb);
 		else
 		{
 			write(1, "Error\n", 6);
 			exit;
-
 		}
 	}
 }
