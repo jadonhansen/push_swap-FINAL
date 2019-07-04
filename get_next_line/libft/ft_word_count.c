@@ -1,29 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_stack.c                                      :+:      :+:    :+:   */
+/*   ft_word_count.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/04 15:55:17 by jhansen           #+#    #+#             */
-/*   Updated: 2019/07/04 16:59:41 by jhansen          ###   ########.fr       */
+/*   Created: 2019/06/10 16:03:11 by jhansen           #+#    #+#             */
+/*   Updated: 2019/06/10 16:11:05 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	print_stack(t_stack **stacka)
+int		ft_word_count(char const *s, char c, int index)
 {
-	int	i;
+	int i;
 
 	i = 0;
-	if ((*stacka) != NULL)
+	if (!(s[index]))
+		return (0);
+	while (s[index] == c)
+		index++;
+	while (s[index] != '\0' && s[index] != c)
 	{
-		while ((*stacka)->next != NULL)
-		{
-			i = (*stacka)->num;
-			ft_putnbr(i);
-			*stacka = (*stacka)->next;
-		}
+		index++;
+		i = 1;
 	}
+	return (i + ft_word_count(s, c, index));
 }

@@ -1,29 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_stack.c                                      :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/04 15:55:17 by jhansen           #+#    #+#             */
-/*   Updated: 2019/07/04 16:59:41 by jhansen          ###   ########.fr       */
+/*   Created: 2019/05/22 14:59:45 by jhansen           #+#    #+#             */
+/*   Updated: 2019/05/27 17:12:07 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	print_stack(t_stack **stacka)
+char	*ft_strdup(const char *s1)
 {
-	int	i;
+	void *string;
 
-	i = 0;
-	if ((*stacka) != NULL)
-	{
-		while ((*stacka)->next != NULL)
-		{
-			i = (*stacka)->num;
-			ft_putnbr(i);
-			*stacka = (*stacka)->next;
-		}
-	}
+	string = (char *)malloc((ft_strlen(s1) + 1) * sizeof(char));
+	if (string == NULL)
+		return (NULL);
+	else
+		ft_memcpy(string, s1, ft_strlen(s1) + 1);
+	return (string);
 }

@@ -1,29 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_stack.c                                      :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/04 15:55:17 by jhansen           #+#    #+#             */
-/*   Updated: 2019/07/04 16:59:41 by jhansen          ###   ########.fr       */
+/*   Created: 2019/05/22 14:58:37 by jhansen           #+#    #+#             */
+/*   Updated: 2019/05/27 17:06:39 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	print_stack(t_stack **stacka)
+void	*ft_memset(void *b, int c, size_t len)
 {
-	int	i;
+	unsigned char *string;
 
-	i = 0;
-	if ((*stacka) != NULL)
+	string = b;
+	while (len > 0)
 	{
-		while ((*stacka)->next != NULL)
-		{
-			i = (*stacka)->num;
-			ft_putnbr(i);
-			*stacka = (*stacka)->next;
-		}
+		*string = c;
+		string++;
+		len--;
 	}
+	return (b);
 }

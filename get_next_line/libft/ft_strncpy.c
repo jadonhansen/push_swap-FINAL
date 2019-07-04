@@ -1,29 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_stack.c                                      :+:      :+:    :+:   */
+/*   ft_strncpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/04 15:55:17 by jhansen           #+#    #+#             */
-/*   Updated: 2019/07/04 16:59:41 by jhansen          ###   ########.fr       */
+/*   Created: 2019/05/21 14:02:42 by jhansen           #+#    #+#             */
+/*   Updated: 2019/05/27 15:54:37 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	print_stack(t_stack **stacka)
+char	*ft_strncpy(char *dst, const char *src, size_t len)
 {
-	int	i;
+	size_t i;
 
 	i = 0;
-	if ((*stacka) != NULL)
+	while (src[i] != '\0' && i < len)
 	{
-		while ((*stacka)->next != NULL)
-		{
-			i = (*stacka)->num;
-			ft_putnbr(i);
-			*stacka = (*stacka)->next;
-		}
+		dst[i] = src[i];
+		i++;
 	}
+	while (i < len)
+	{
+		dst[i] = '\0';
+		i++;
+	}
+	return (dst);
 }

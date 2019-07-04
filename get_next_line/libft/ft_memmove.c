@@ -1,29 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_stack.c                                      :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/04 15:55:17 by jhansen           #+#    #+#             */
-/*   Updated: 2019/07/04 16:59:41 by jhansen          ###   ########.fr       */
+/*   Created: 2019/05/27 11:38:39 by jhansen           #+#    #+#             */
+/*   Updated: 2019/06/05 15:21:10 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	print_stack(t_stack **stacka)
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	int	i;
+	int			x;
+	char		*dest;
+	const char	*source;
 
-	i = 0;
-	if ((*stacka) != NULL)
-	{
-		while ((*stacka)->next != NULL)
+	dest = dst;
+	source = src;
+	x = ((int)len - 1);
+	if (dest == source && len > 0)
+		return (NULL);
+	if (source < dest)
+		while (x >= 0)
 		{
-			i = (*stacka)->num;
-			ft_putnbr(i);
-			*stacka = (*stacka)->next;
+			dest[x] = source[x];
+			x--;
+		}
+	else
+	{
+		x = 0;
+		while (x < (int)len)
+		{
+			dest[x] = source[x];
+			x++;
 		}
 	}
+	return (dst);
 }

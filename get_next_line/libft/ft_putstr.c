@@ -1,29 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_stack.c                                      :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/04 15:55:17 by jhansen           #+#    #+#             */
-/*   Updated: 2019/07/04 16:59:41 by jhansen          ###   ########.fr       */
+/*   Created: 2019/05/29 11:41:30 by jhansen           #+#    #+#             */
+/*   Updated: 2019/06/05 17:06:49 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	print_stack(t_stack **stacka)
+void	ft_putstr(char const *s)
 {
-	int	i;
+	int i;
 
 	i = 0;
-	if ((*stacka) != NULL)
+	if (s != NULL)
 	{
-		while ((*stacka)->next != NULL)
+		while (s[i] != '\0')
 		{
-			i = (*stacka)->num;
-			ft_putnbr(i);
-			*stacka = (*stacka)->next;
+			ft_putchar(s[i]);
+			i++;
 		}
 	}
 }

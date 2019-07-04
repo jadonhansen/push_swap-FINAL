@@ -1,29 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_stack.c                                      :+:      :+:    :+:   */
+/*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/04 15:55:17 by jhansen           #+#    #+#             */
-/*   Updated: 2019/07/04 16:59:41 by jhansen          ###   ########.fr       */
+/*   Created: 2019/05/23 14:27:13 by jhansen           #+#    #+#             */
+/*   Updated: 2019/05/30 11:12:31 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	print_stack(t_stack **stacka)
+char	*ft_strstr(const char *haystack, const char *needle)
 {
-	int	i;
+	int len;
+	int i;
+	int j;
 
 	i = 0;
-	if ((*stacka) != NULL)
+	len = ft_strlen(needle);
+	if (len == 0)
+		return ((char *)haystack);
+	while (haystack[i] != '\0')
 	{
-		while ((*stacka)->next != NULL)
+		j = 0;
+		while (needle[j] == haystack[i + j])
 		{
-			i = (*stacka)->num;
-			ft_putnbr(i);
-			*stacka = (*stacka)->next;
+			if (needle[j + 1] == '\0')
+			{
+				return ((char *)haystack + i);
+			}
+			j++;
 		}
+		i++;
 	}
+	return (NULL);
 }

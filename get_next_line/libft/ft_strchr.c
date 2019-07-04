@@ -1,29 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_stack.c                                      :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/04 15:55:17 by jhansen           #+#    #+#             */
-/*   Updated: 2019/07/04 16:59:41 by jhansen          ###   ########.fr       */
+/*   Created: 2019/05/23 11:08:19 by jhansen           #+#    #+#             */
+/*   Updated: 2019/06/05 16:39:02 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	print_stack(t_stack **stacka)
+char	*ft_strchr(const char *s, int c)
 {
-	int	i;
-
-	i = 0;
-	if ((*stacka) != NULL)
+	if (c == '\0')
+		return ((char *)s + ft_strlen(s));
+	while (*s)
 	{
-		while ((*stacka)->next != NULL)
+		if (*s == c)
 		{
-			i = (*stacka)->num;
-			ft_putnbr(i);
-			*stacka = (*stacka)->next;
+			return ((char *)s);
 		}
+		s++;
 	}
+	return (NULL);
 }

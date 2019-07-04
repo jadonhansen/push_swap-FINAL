@@ -1,29 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_stack.c                                      :+:      :+:    :+:   */
+/*   ft_strsplit.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/04 15:55:17 by jhansen           #+#    #+#             */
-/*   Updated: 2019/07/04 16:59:41 by jhansen          ###   ########.fr       */
+/*   Created: 2019/06/03 12:44:09 by jhansen           #+#    #+#             */
+/*   Updated: 2019/06/10 16:14:08 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	print_stack(t_stack **stacka)
+char			**ft_strsplit(char const *s, char c)
 {
-	int	i;
+	char	**array;
+	int		count;
 
-	i = 0;
-	if ((*stacka) != NULL)
-	{
-		while ((*stacka)->next != NULL)
-		{
-			i = (*stacka)->num;
-			ft_putnbr(i);
-			*stacka = (*stacka)->next;
-		}
-	}
+	if (s == NULL || c == (char)NULL)
+		return (NULL);
+	count = ft_word_count(s, c, 0);
+	array = (char **)malloc(sizeof(char *) * count + 1);
+	if (array == NULL)
+		return (NULL);
+	ft_populatearray(count, c, s, array);
+	return (array);
 }

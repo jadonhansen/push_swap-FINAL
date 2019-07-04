@@ -1,29 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_stack.c                                      :+:      :+:    :+:   */
+/*   check_errors.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/04 15:55:17 by jhansen           #+#    #+#             */
-/*   Updated: 2019/07/04 16:59:41 by jhansen          ###   ########.fr       */
+/*   Created: 2019/07/04 16:59:09 by jhansen           #+#    #+#             */
+/*   Updated: 2019/07/04 17:29:37 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	print_stack(t_stack **stacka)
+void	check_errors(t_stack **stacka, char *arg)
 {
-	int	i;
+	int		i;
+	t_stack	*temp;
 
-	i = 0;
-	if ((*stacka) != NULL)
+	i = ft_atoi(arg);
+	temp = *stacka;
+	if (i > MAX || i < MIN)
 	{
-		while ((*stacka)->next != NULL)
+		write(1, "Error\n", 6);
+		exit (0);
+	}	
+	while (temp->prev != NULL)
+	{
+		if (temp->num == temp->prev->num)
 		{
-			i = (*stacka)->num;
-			ft_putnbr(i);
-			*stacka = (*stacka)->next;
+			write(1, "Error\n", 6);
+			exit (0);
 		}
+		temp = temp->prev;
 	}
 }

@@ -1,29 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_stack.c                                      :+:      :+:    :+:   */
+/*   ft_lstdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/04 15:55:17 by jhansen           #+#    #+#             */
-/*   Updated: 2019/07/04 16:59:41 by jhansen          ###   ########.fr       */
+/*   Created: 2019/06/11 11:26:51 by jhansen           #+#    #+#             */
+/*   Updated: 2019/06/11 11:49:43 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	print_stack(t_stack **stacka)
+void	ft_lstdel(t_list **alst, void (*del)(void *, size_t))
 {
-	int	i;
+	t_list *next;
 
-	i = 0;
-	if ((*stacka) != NULL)
+	if (del != NULL)
 	{
-		while ((*stacka)->next != NULL)
+		while ((*alst) != NULL)
 		{
-			i = (*stacka)->num;
-			ft_putnbr(i);
-			*stacka = (*stacka)->next;
+			next = (*alst)->next;
+			del((*alst)->content, (*alst)->content_size);
+			free(*alst);
+			*alst = next;
 		}
+		*alst = NULL;
 	}
 }

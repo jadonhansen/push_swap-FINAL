@@ -1,29 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_stack.c                                      :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/04 15:55:17 by jhansen           #+#    #+#             */
-/*   Updated: 2019/07/04 16:59:41 by jhansen          ###   ########.fr       */
+/*   Created: 2019/05/22 14:05:00 by jhansen           #+#    #+#             */
+/*   Updated: 2019/05/27 17:13:00 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	print_stack(t_stack **stacka)
+size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
-	int	i;
+	size_t length;
+	size_t i;
 
-	i = 0;
-	if ((*stacka) != NULL)
+	length = 0;
+	while (dst[length] != '\0' && length < dstsize)
+		length++;
+	i = length;
+	while ((src[length - i] != '\0') && (length + 1 < dstsize))
 	{
-		while ((*stacka)->next != NULL)
-		{
-			i = (*stacka)->num;
-			ft_putnbr(i);
-			*stacka = (*stacka)->next;
-		}
+		dst[length] = src[length - i];
+		length++;
 	}
+	if (i < dstsize)
+		dst[length] = '\0';
+	return (i + ft_strlen(src));
 }

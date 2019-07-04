@@ -6,7 +6,7 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/01 15:29:22 by jhansen           #+#    #+#             */
-/*   Updated: 2019/07/04 15:45:42 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/07/04 17:13:37 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 #include <stdio.h>
 
-void	start_process(t_list *stacka, t_list *stackb)
+/*void	start_process(t_list *stacka, t_list *stackb)
 {
 	int		gnlret;
 	char	*command;
@@ -50,12 +50,13 @@ void	start_process(t_list *stacka, t_list *stackb)
 			exit;
 		}
 	}
-}
+}*/
 
 int		main(int argc, char **argv)
 {
-	t_list	*stacka;
-	t_list	*stackb;
+	t_stack	*stacka;
+	t_stack	*stackb;
+	t_stack	*temp;	//for checking
 	int		i;
 
 	if (argc < 2)
@@ -63,24 +64,26 @@ int		main(int argc, char **argv)
 	else
 	{
 		i = 1;
-		stacka = (t_list)malloc(sizeof(t_list));
-		stackb = (t_list)malloc(sizeof(t_list));
+		stacka = (t_stack *)malloc(sizeof(t_stack));
+		stackb = (t_stack *)malloc(sizeof(t_stack));
+		temp = stacka;
 		while (argc-- > 1)
 		{
 			check_errors(&stacka, argv[i]);
 			stacka->num = ft_atoi(argv[i++]);
-			stacka->next = (t_list)malloc(sizeof(t_list));
-			stacka = stack->next;
+			stacka->next = (t_stack *)malloc(sizeof(t_stack));
+			stacka = stacka->next;
 		}
 		stacka->next = NULL;
 	}
+	print_stack(&temp);
 
 //use gnl to get commands line by line
 //perform commands obtained line by line to stacka var
 //then iterate through stacka and see if it's sorted
 //return based on sorted outcome
 
-	start_process(&stacka, &stackb);
-	stack_check(&stacka, &stackb);
+	//start_process(&stacka, &stackb);
+	//stack_check(&stacka, &stackb);
 	return (0);
 }

@@ -1,29 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_stack.c                                      :+:      :+:    :+:   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/04 15:55:17 by jhansen           #+#    #+#             */
-/*   Updated: 2019/07/04 16:59:41 by jhansen          ###   ########.fr       */
+/*   Created: 2019/06/04 15:50:46 by jhansen           #+#    #+#             */
+/*   Updated: 2019/06/10 16:13:26 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	print_stack(t_stack **stacka)
+char			*ft_itoa(int n)
 {
-	int	i;
+	int		count;
+	char	*str;
 
-	i = 0;
-	if ((*stacka) != NULL)
+	count = ft_getlen(n);
+	if (n == 0)
 	{
-		while ((*stacka)->next != NULL)
-		{
-			i = (*stacka)->num;
-			ft_putnbr(i);
-			*stacka = (*stacka)->next;
-		}
+		str = ft_strnew(1);
+		str[0] = '0';
+		return (str);
 	}
+	if (n < 0)
+		str = ft_negcase(n, count);
+	else
+		str = ft_poscase(n, count);
+	return (str);
 }

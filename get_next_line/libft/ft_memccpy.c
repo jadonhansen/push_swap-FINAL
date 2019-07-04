@@ -1,29 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_stack.c                                      :+:      :+:    :+:   */
+/*   ft_memccpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/04 15:55:17 by jhansen           #+#    #+#             */
-/*   Updated: 2019/07/04 16:59:41 by jhansen          ###   ########.fr       */
+/*   Created: 2019/05/27 10:19:21 by jhansen           #+#    #+#             */
+/*   Updated: 2019/05/27 17:03:54 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	print_stack(t_stack **stacka)
+void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
 {
-	int	i;
+	int			i;
+	char		*dest;
+	const char	*source;
 
+	dest = dst;
+	source = src;
 	i = 0;
-	if ((*stacka) != NULL)
+	while ((size_t)i < n)
 	{
-		while ((*stacka)->next != NULL)
-		{
-			i = (*stacka)->num;
-			ft_putnbr(i);
-			*stacka = (*stacka)->next;
-		}
+		dest[i] = source[i];
+		if (source[i] == (char)c)
+			return (dst + i + 1);
+		i++;
 	}
+	return (NULL);
 }

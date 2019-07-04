@@ -1,29 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_stack.c                                      :+:      :+:    :+:   */
+/*   ft_strncat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/04 15:55:17 by jhansen           #+#    #+#             */
-/*   Updated: 2019/07/04 16:59:41 by jhansen          ###   ########.fr       */
+/*   Created: 2019/05/22 12:22:38 by jhansen           #+#    #+#             */
+/*   Updated: 2019/05/22 13:46:07 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	print_stack(t_stack **stacka)
+char	*ft_strncat(char *s1, const char *s2, size_t n)
 {
-	int	i;
+	int i;
+	int j;
 
 	i = 0;
-	if ((*stacka) != NULL)
+	j = 0;
+	while (s1[i] != '\0')
 	{
-		while ((*stacka)->next != NULL)
-		{
-			i = (*stacka)->num;
-			ft_putnbr(i);
-			*stacka = (*stacka)->next;
-		}
+		i++;
 	}
+	while (s2[j] != '\0' && (size_t)j < n)
+	{
+		s1[i + j] = s2[j];
+		j++;
+	}
+	s1[i + j] = 0;
+	return (s1);
 }
