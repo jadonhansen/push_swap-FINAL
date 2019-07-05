@@ -6,7 +6,7 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/01 15:29:22 by jhansen           #+#    #+#             */
-/*   Updated: 2019/07/05 11:25:10 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/07/05 14:23:00 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,28 +55,14 @@
 int		main(int argc, char **argv)
 {
 	t_stack	*stacka;
-	t_stack	*stackb;
-	t_stack	*temp;	//for checking
-	int		i;
+	//t_stack	*stackb;
+	t_stack	*temp;
 
 	if (argc < 2)
 		exit(0) ;
 	else
-	{
-		i = 1;
-		stacka = (t_stack *)malloc(sizeof(t_stack));
-		stackb = (t_stack *)malloc(sizeof(t_stack));
-		temp = stacka;
-		while (argc-- > 1)
-		{
-			check_errors(&stacka, argv[i]);
-			stacka->num = ft_atoi(argv[i++]);
-			stacka->next = (t_stack *)malloc(sizeof(t_stack));
-			stacka = stacka->next;
-			printf("%s\n", "reached here after changed stacka->next");
-		}
-		stacka->next = NULL;
-	}
+		stacka = stack_fill(argc, argv);
+	temp = stacka;
 	print_stack(&temp);
 
 //use gnl to get commands line by line

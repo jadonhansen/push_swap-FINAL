@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_stack.c                                      :+:      :+:    :+:   */
+/*   stack_operat.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/04 15:55:17 by jhansen           #+#    #+#             */
-/*   Updated: 2019/07/05 13:33:47 by jhansen          ###   ########.fr       */
+/*   Created: 2019/07/05 13:39:46 by jhansen           #+#    #+#             */
+/*   Updated: 2019/07/05 14:22:28 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,11 @@ void	print_stack(t_stack **stacka)
 	int	i;
 
 	i = 0;
-	if ((*stacka) != NULL)
+	while (*stacka)
 	{
-		while ((*stacka)->next != NULL)
-		{
-			i = (*stacka)->num;
-			ft_putnbr(i);
-			write(1, "\n", 1);
-			*stacka = (*stacka)->next;
-		}
+		ft_putnbr((*stacka)->num);
+		ft_putendl("");
+		*stacka = (*stacka)->next;
 	}
 }
 
@@ -37,19 +33,20 @@ t_stack	*stack_fill(int arc, char **arg)
 
 	i = 1;
 	stack = create_node(ft_atoi(arg[1]));
-	while (i++ < arc)
+	while (++i < arc)
 	{
-		node = create_node(ft_atoi(arg[1]));
-		add_node_tail(&stack, node);
+		node = create_node(ft_atoi(arg[i]));
+		add_tail_node(&stack, node);
 	}
 	return (stack);
 }
 
-t_stack	create_node(int num)
+t_stack	*create_node(int num)
 {
 	t_stack	*node;
-
-	if (node = ((t_stack *)malloc(sizeof(t_stack))))
+	
+	node = (t_stack *)malloc(sizeof(t_stack));
+	if (node)
 	{
 		node->num = num;
 		node->next = NULL;
