@@ -6,11 +6,13 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/04 16:59:09 by jhansen           #+#    #+#             */
-/*   Updated: 2019/07/05 11:32:23 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/07/05 13:33:11 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+#include <stdio.h>
 
 void	check_errors(t_stack **stacka, char *arg)
 {
@@ -25,7 +27,7 @@ void	check_errors(t_stack **stacka, char *arg)
 		{
 			write(1, "Error\n", 6);
 			exit (0);
-		}	
+		}
 		while (temp->prev != NULL)
 		{
 			if (i == temp->prev->num)
