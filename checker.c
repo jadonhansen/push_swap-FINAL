@@ -6,7 +6,7 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/01 15:29:22 by jhansen           #+#    #+#             */
-/*   Updated: 2019/07/04 17:13:37 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/07/05 11:25:10 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,7 @@ int		main(int argc, char **argv)
 			stacka->num = ft_atoi(argv[i++]);
 			stacka->next = (t_stack *)malloc(sizeof(t_stack));
 			stacka = stacka->next;
+			printf("%s\n", "reached here after changed stacka->next");
 		}
 		stacka->next = NULL;
 	}
