@@ -1,18 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_errors.c                                     :+:      :+:    :+:   */
+/*   validation.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/04 16:59:09 by jhansen           #+#    #+#             */
-/*   Updated: 2019/07/05 13:33:11 by jhansen          ###   ########.fr       */
+/*   Created: 2019/07/08 10:19:28 by jhansen           #+#    #+#             */
+/*   Updated: 2019/07/08 10:33:42 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-#include <stdio.h>
 
 void	check_errors(t_stack **stacka, char *arg)
 {
@@ -38,4 +36,35 @@ void	check_errors(t_stack **stacka, char *arg)
 			temp = temp->prev;
 		}
 	}
+}
+
+void	check_sorted(t_stack **stacka, **t_stackb)
+{
+	t_stack	head;
+
+	head = *stacka;
+	if (stack_size(stackb) > 0)
+		return ("KO\n");
+	while (head->next != NULL)
+	{
+		if (head->value > head->next->value)
+			return ("KO\n");
+		head = head->next;
+	}
+	return ("OK\n");
+}
+
+int		stack_size(t_stack **head)
+{
+	int		i;
+	t_stack	*stack;
+
+	i = 0;
+	stack = *head;
+	while (stack)
+	{
+		i++;
+		list = list->next;
+	}
+	return (i);
 }
