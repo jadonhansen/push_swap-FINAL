@@ -6,7 +6,7 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/03 10:38:41 by jhansen           #+#    #+#             */
-/*   Updated: 2019/07/08 10:51:29 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/07/11 13:20:39 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,28 @@ typedef struct		s_stack
 	struct s_stack	*prev;
 }					t_stack;
 
+/*
+**	stack_operations.c
+*/
+
 void	print_stack(t_stack **stacka);
 t_stack	*stack_fill(int arc, char **arg);
 t_stack	*create_node(int num);
 void	add_tail_node(t_stack **stack, t_stack *node);
-void	check_errors(t_stack **stacka, char *arg);
-void	check_sorted(t_stack **stacka, **t_stackb);
+
+/*
+**	input_validation.c
+*/
+
+void	check_errors(int len, char **arg);
+void	duplicate_checker(int *array);
+int		*array_fill(int len, char **arg);
+
+/*
+**	output_validation.c
+*/
+
+int		stack_check(t_stack **stacka, t_stack **t_stackb);
+int		stack_size(t_stack **head);
 
 #endif

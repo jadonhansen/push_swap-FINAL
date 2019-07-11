@@ -6,13 +6,11 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/01 15:29:22 by jhansen           #+#    #+#             */
-/*   Updated: 2019/07/05 14:23:00 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/07/11 13:29:51 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-#include <stdio.h>
 
 /*void	start_process(t_list *stacka, t_list *stackb)
 {
@@ -52,10 +50,22 @@
 	}
 }*/
 
+/*void	stackb_fill(t_stack **a, t_stack **b)
+{
+	int	i;
+
+	i = stack_size(a);
+	while (i >= 0)
+	{
+		
+		i--;
+	}
+}*/
+
 int		main(int argc, char **argv)
 {
 	t_stack	*stacka;
-	//t_stack	*stackb;
+	t_stack	*stackb;
 	t_stack	*temp;
 
 	if (argc < 2)
@@ -63,14 +73,14 @@ int		main(int argc, char **argv)
 	else
 		stacka = stack_fill(argc, argv);
 	temp = stacka;
-	print_stack(&temp);
+	print_stack(&temp); //for error checking
 
-//use gnl to get commands line by line
-//perform commands obtained line by line to stacka var
-//then iterate through stacka and see if it's sorted
-//return based on sorted outcome
-
+	check_errors(argc, argv);
+	//stackb_fill(&temp, &stackb);
 	//start_process(&stacka, &stackb);
-	//stack_check(&stacka, &stackb);
+	if (stack_check(&stacka, &stackb) > 0)
+		ft_putstr("KO\n");
+	else
+		ft_putstr("OK\n");
 	return (0);
 }

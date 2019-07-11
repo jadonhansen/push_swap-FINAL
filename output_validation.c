@@ -1,57 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   validation.c                                       :+:      :+:    :+:   */
+/*   output_validation.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/08 10:19:28 by jhansen           #+#    #+#             */
-/*   Updated: 2019/07/08 10:33:42 by jhansen          ###   ########.fr       */
+/*   Created: 2019/07/11 12:46:57 by jhansen           #+#    #+#             */
+/*   Updated: 2019/07/11 13:18:45 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	check_errors(t_stack **stacka, char *arg)
+int		stack_check(t_stack **stacka, t_stack **stackb)
 {
-	int		i;
-	t_stack	*temp = NULL;
-
-	i = ft_atoi(arg);
-	temp = *stacka;
-	if (temp != NULL)
-	{
-		if (i > MAX || i < MIN)
-		{
-			write(1, "Error\n", 6);
-			exit (0);
-		}
-		while (temp->prev != NULL)
-		{
-			if (i == temp->prev->num)
-			{
-				write(1, "Error\n", 6);
-				exit (0);
-			}
-			temp = temp->prev;
-		}
-	}
-}
-
-void	check_sorted(t_stack **stacka, **t_stackb)
-{
-	t_stack	head;
+	t_stack	*head;
 
 	head = *stacka;
 	if (stack_size(stackb) > 0)
-		return ("KO\n");
+		return (1);
 	while (head->next != NULL)
 	{
-		if (head->value > head->next->value)
-			return ("KO\n");
+		if (head->num > head->next->num)
+			return (1);
 		head = head->next;
 	}
-	return ("OK\n");
+	return (0);
 }
 
 int		stack_size(t_stack **head)
@@ -64,7 +38,7 @@ int		stack_size(t_stack **head)
 	while (stack)
 	{
 		i++;
-		list = list->next;
+		stack = stack->next;
 	}
 	return (i);
 }
