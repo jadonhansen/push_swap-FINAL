@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_operat.c                                     :+:      :+:    :+:   */
+/*   stack_operations.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/05 13:39:46 by jhansen           #+#    #+#             */
-/*   Updated: 2019/07/05 14:22:28 by jhansen          ###   ########.fr       */
+/*   Created: 2019/07/12 15:55:08 by jhansen           #+#    #+#             */
+/*   Updated: 2019/07/12 15:55:16 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,4 +67,9 @@ void	add_tail_node(t_stack **stack, t_stack *node)
 		temp->next = node;
 		node->prev = temp;
 	}
+}
+
+void	add_head_node(t_stack **stacka, t_stackb *node)
+{
+	
 }

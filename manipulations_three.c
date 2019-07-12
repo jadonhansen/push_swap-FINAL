@@ -6,13 +6,14 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/11 15:38:17 by jhansen           #+#    #+#             */
-/*   Updated: 2019/07/11 15:38:23 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/07/12 10:48:51 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_rrr(t_list stacka, t_list stackb)
+void	ft_rrr(t_stack **stacka, t_stack **stackb)
 {
-
+	ft_rra(stacka);
+	ft_rrb(stackb);
 }

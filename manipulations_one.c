@@ -6,83 +6,87 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/11 15:37:41 by jhansen           #+#    #+#             */
-/*   Updated: 2019/07/11 15:37:46 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/07/12 15:54:15 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_sa(t_list **stacka)
+void	ft_sa(t_stack **stacka)
 {
 	int temp;
 	int	hold;
 
 	hold = 0;
-	temp = stacka->num;
-	if (stacka->next != NULL)
+	temp = (*stacka)->num;
+	if ((*stacka)->next != NULL)
 	{
-		hold = stacka->next->num;
-		stacka->num = hold;
-		stacka->next->num = temp;
+		hold = (*stacka)->next->num;
+		(*stacka)->num = hold;
+		(*stacka)->next->num = temp;
 	}
 }
 
-void	ft_sb(t_list **stackb)
+void	ft_sb(t_stack **stackb)
 {
 	int temp;
 	int hold;
 
 	hold = 0;
-	temp = stackb->num;
-	if (stackb->next != NULL)
+	temp = (*stackb)->num;
+	if ((*stackb)->next != NULL)
 	{
-		hold = stackb->next->num;
-		stackb->num = hold;
-		stackb->next->num = temp;
+		hold = (*stackb)->next->num;
+		(*stackb)->num = hold;
+		(*stackb)->next->num = temp;
 	}
 }
 
-void	ft_ss(t_list **stacka, t_list **stackb)
+void	ft_ss(t_stack **stacka, t_stack **stackb)
 {
-	if (stacka != NULL && stackb != NULL)
+	if (stacka && stackb)
 	{
 		ft_sa(*stacka);
 		ft_sb(*stackb);
 	}
 }
 
-void	ft_pa(t_list **stacka, t_list **stackb)
+void	ft_pa(t_stack **stacka, t_stack **stackb)
 {
-	t_list	*topb;
-	
-	if (*stackb != NULL)
+	t_stack	*temp;
+
+	if (!*stackb)
+		return ;
+	if (stackb != NULL)
 	{
-		topb = stackb;
-		topb->next = *stacka;
-		topb->prev = NULL;
-		if ((*stacka) != NULL)
-			(*stacka)->prev = topb;
-		*stacka = topb;
-		stackb = stackb->next;
-		return (*stacka);
+		temp = *stackb;
+		if ((*stackb)->next)
+			*stackb = (*stackb)->next;
+		else
+			*stackb = NULL;
+		if (*stackb)
+			(*stackb)->prev = NULL;
+		if (stacka)
+			add_head_node(stacka, temp);
 	}
-	return ;
 }
 
-void	ft_pb(t_list **stacka, t_list **stackb)
+void	ft_pb(t_stack **stacka, t_stack **stackb)
 {
-	t_list *topa;
+	t_stack *temp;
 
-	if (*stacka != NULL)
+	if (!*stacka)
+		return ;
+	if (stacka != NULL)
 	{
-		topa = *stacka;
-		topa->next = *stackb;
-		topa->prev = NULL;
-		if ((*stackb) != NULL)
-			(*stackb)->prev = topa;
-		*stackb = topa;
-		*stacka = (*stacka)->next;
-		return (*stackb);
+		temp = *stacka;
+		if ((*stacka)->next)
+			*stacka = (*stacka)->next;
+		else
+			*stacka = NULL;
+		if ((*stacka)
+			(*stacka)->prev = NULL;
+		if (stackb)
+			add_head_node(stackb, temp);
 	}
-	return ;
 }
