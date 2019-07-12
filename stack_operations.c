@@ -6,7 +6,7 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/12 15:55:08 by jhansen           #+#    #+#             */
-/*   Updated: 2019/07/12 15:55:16 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/07/12 16:13:52 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,22 @@ void	add_tail_node(t_stack **stack, t_stack *node)
 	}
 }
 
-void	add_head_node(t_stack **stacka, t_stackb *node)
+void	add_head_node(t_stack **stack, t_stack *node)
 {
-	
+	t_stack	*temp;
+
+	temp = *stack;
+	if (temp)
+	{
+		temp->prev = node;
+		node->prev = NULL;
+		node->next = *stack;
+		*stack = node;
+	}
+	else
+	{
+		node->next = NULL;
+		node->prev = NULL;
+		*stack = node;
+	}
 }
