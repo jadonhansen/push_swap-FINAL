@@ -6,7 +6,7 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/03 10:38:41 by jhansen           #+#    #+#             */
-/*   Updated: 2019/07/11 13:20:39 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/07/12 16:22:12 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,21 @@ typedef struct		s_stack
 }					t_stack;
 
 /*
+**	manipulations.c
+*/
+
+void	ft_sa(t_stack **stacka);
+void	ft_sb(t_stack **stackb);
+void	ft_ss(t_stack **stacka, t_stack **stackb);
+void	ft_pa(t_stack **stacka, t_stack **stackb);
+void	ft_pb(t_stack **stacka, t_stack **stackb);
+void	ft_ra(t_stack **stacka);
+void	ft_rb(t_stack **stackb);
+void	ft_rr(t_stack **stacka, t_stack **stackb);
+void	ft_rrb(t_stack **stackb);
+void	ft_rrr(t_stack **stacka, t_stack **stackb);
+
+/*
 **	stack_operations.c
 */
 
@@ -34,6 +49,7 @@ void	print_stack(t_stack **stacka);
 t_stack	*stack_fill(int arc, char **arg);
 t_stack	*create_node(int num);
 void	add_tail_node(t_stack **stack, t_stack *node);
+void	add_head_node(t_stack **stack, t_stack *node);
 
 /*
 **	input_validation.c
