@@ -6,7 +6,7 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/01 15:29:22 by jhansen           #+#    #+#             */
-/*   Updated: 2019/07/18 15:10:22 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/07/18 17:00:18 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,14 +30,14 @@ int		main(int argc, char **argv)
 	t_stack	*stackb;
 
 	if (argc < 2)
-		exit(1);
+		return (0);
 	else
 		stacka = stack_fill(argc, argv);
+	check_errors(argc, argv);
 
 	print_stack(&stacka, 'A'); //for error checking
 	print_stack(&stackb, 'B');
 
-	check_errors(argc, argv);
 	start_process(&stacka, &stackb);
 	if (stack_check(&stacka, &stackb) > 0)
 		ft_putstr("KO\n");

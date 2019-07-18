@@ -6,7 +6,7 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/11 12:44:55 by jhansen           #+#    #+#             */
-/*   Updated: 2019/07/18 15:20:13 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/07/18 16:59:44 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,16 @@ void	check_errors(int len, char **arg)
 	int		i;
 	int		*temp;
 
+	i = 0;
+	while (arg[i])
+	{
+		if (ft_str_is_numeric(arg[i]) == 0)
+		{
+			write(1, "Error\n", 6);
+			exit(1);
+		}
+		i++;
+	}
 	i = 0;
 	temp = array_fill(len, arg);
 	if (temp)

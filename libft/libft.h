@@ -6,7 +6,7 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/04 15:09:10 by jhansen           #+#    #+#             */
-/*   Updated: 2019/06/27 16:22:09 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/07/18 16:57:56 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,5 +116,11 @@ t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 */
 
 char				*ft_strndup(const char *s1, size_t n);
+
+/*
+**Extra used in push_swap
+*/
+
+int					ft_str_is_numeric(const char *str);
 
 #endif
