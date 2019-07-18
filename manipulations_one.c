@@ -6,7 +6,7 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/11 15:37:41 by jhansen           #+#    #+#             */
-/*   Updated: 2019/07/18 11:36:13 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/07/18 13:13:11 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,9 @@ void	ft_pa(t_stack **stacka, t_stack **stackb)
 			*stackb = NULL;
 		if (*stackb)
 			(*stackb)->prev = NULL;
-		if (stacka)
+		if (stacka == NULL)
+			add_head_node(stacka, temp);
+		else if (stacka != NULL)
 			add_head_node(stacka, temp);
 	}
 }
@@ -86,7 +88,9 @@ void	ft_pb(t_stack **stacka, t_stack **stackb)
 			*stacka = NULL;
 		if (*stacka)
 			(*stacka)->prev = NULL;
-		if (stackb)
+		if (stackb == NULL)
+			add_head_node(stackb, temp);
+		else if (stackb != NULL)
 			add_head_node(stackb, temp);
 	}
 }

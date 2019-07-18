@@ -6,22 +6,27 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/12 15:55:08 by jhansen           #+#    #+#             */
-/*   Updated: 2019/07/12 16:13:52 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/07/18 13:17:17 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	print_stack(t_stack **stacka)
+void	print_stack(t_stack **stacka, char c)
 {
-	int	i;
+	t_stack *node;
 
-	i = 0;
-	while (*stacka)
+	node = *stacka;
+	if (node)
 	{
-		ft_putnbr((*stacka)->num);
-		ft_putendl("");
-		*stacka = (*stacka)->next;
+		printf("--- Stack %c ---\n", c);
+		while (node)
+		{
+			ft_putnbr(node->num);
+			ft_putendl("");
+			node = node->next;
+		}
+		printf("---------------\n");
 	}
 }
 

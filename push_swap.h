@@ -6,7 +6,7 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/03 10:38:41 by jhansen           #+#    #+#             */
-/*   Updated: 2019/07/18 11:36:47 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/07/18 13:06:13 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include "./libft/libft.h"
 # include "./get_next_line/get_next_line.h"
 # include <stdlib.h>
+# include <stdio.h>
 
 typedef struct		s_stack
 {
@@ -46,19 +47,20 @@ void	ft_rrr(t_stack **stacka, t_stack **stackb);
 **	stack_operations.c
 */
 
-void	print_stack(t_stack **stacka);
+void	print_stack(t_stack **stacka, char c);
 t_stack	*stack_fill(int arc, char **arg);
 t_stack	*create_node(int num);
 void	add_tail_node(t_stack **stack, t_stack *node);
 void	add_head_node(t_stack **stack, t_stack *node);
 
 /*
-**	input_validation.c
+**	input.c
 */
 
 void	check_errors(int len, char **arg);
 void	duplicate_checker(int *array);
 int		*array_fill(int len, char **arg);
+void	do_op(char *command, t_stack **stacka, t_stack **stackb);
 
 /*
 **	output_validation.c
