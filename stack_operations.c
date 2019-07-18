@@ -6,7 +6,7 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/12 15:55:08 by jhansen           #+#    #+#             */
-/*   Updated: 2019/07/18 13:17:17 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/07/18 15:21:53 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ t_stack	*stack_fill(int arc, char **arg)
 t_stack	*create_node(int num)
 {
 	t_stack	*node;
-	
+
 	node = (t_stack *)malloc(sizeof(t_stack));
 	if (node)
 	{

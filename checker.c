@@ -6,7 +6,7 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/01 15:29:22 by jhansen           #+#    #+#             */
-/*   Updated: 2019/07/18 13:15:59 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/07/18 15:10:22 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int		main(int argc, char **argv)
 	t_stack	*stackb;
 
 	if (argc < 2)
-		exit(0) ;
+		exit(1);
 	else
 		stacka = stack_fill(argc, argv);
 

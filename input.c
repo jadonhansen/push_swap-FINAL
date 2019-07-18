@@ -6,7 +6,7 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/11 12:44:55 by jhansen           #+#    #+#             */
-/*   Updated: 2019/07/18 13:18:57 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/07/18 15:20:13 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,9 +51,9 @@ void	duplicate_checker(int *array)
 				if (array[j] == num)
 				{
 					write(1, "Error\n", 6);
-					exit (0);
+					exit(1);
 				}
-				j++;		
+				j++;
 			}
 			i++;
 		}
@@ -74,7 +74,7 @@ void	check_errors(int len, char **arg)
 			if (i > MAX || i < MIN)
 			{
 				write(1, "Error\n", 6);
-				exit (0);
+				exit(1);
 			}
 			i++;
 		}
@@ -84,28 +84,28 @@ void	check_errors(int len, char **arg)
 
 void	do_op(char *command, t_stack **stacka, t_stack **stackb)
 {
-		if (ft_strequ(command, "sa"))
-			ft_sa(stacka);
-		else if (ft_strequ(command, "sb"))
-			ft_sb(stackb);
-		else if (ft_strequ(command, "ss"))
-			ft_ss(stacka, stackb);
-		else if (ft_strequ(command, "pa"))
-			ft_pa(stacka, stackb);
-		else if (ft_strequ(command, "pb"))
-			ft_pb(stacka, stackb);
-		else if (ft_strequ(command, "ra"))
-			ft_ra(stacka);
-		else if (ft_strequ(command, "rb"))
-			ft_rb(stackb);
-		else if (ft_strequ(command, "rr"))
-			ft_rr(stacka, stackb);
-		else if (ft_strequ(command, "rra"))
-			ft_rra(stacka);
-		else if (ft_strequ(command, "rrb"))
-			ft_rrb(stackb);
-		else if (ft_strequ(command, "rrr"))
-			ft_rrr(stacka, stackb);
-		else
-			ft_putstr("Wrong input commmand. Try again!\n");
+	if (ft_strequ(command, "sa"))
+		ft_sa(stacka);
+	else if (ft_strequ(command, "sb"))
+		ft_sb(stackb);
+	else if (ft_strequ(command, "ss"))
+		ft_ss(stacka, stackb);
+	else if (ft_strequ(command, "pa"))
+		ft_pa(stacka, stackb);
+	else if (ft_strequ(command, "pb"))
+		ft_pb(stacka, stackb);
+	else if (ft_strequ(command, "ra"))
+		ft_ra(stacka);
+	else if (ft_strequ(command, "rb"))
+		ft_rb(stackb);
+	else if (ft_strequ(command, "rr"))
+		ft_rr(stacka, stackb);
+	else if (ft_strequ(command, "rra"))
+		ft_rra(stacka);
+	else if (ft_strequ(command, "rrb"))
+		ft_rrb(stackb);
+	else if (ft_strequ(command, "rrr"))
+		ft_rrr(stacka, stackb);
+	else
+		ft_putstr("Wrong input commmand. Try again!\n");
 }
