@@ -6,13 +6,13 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/01 15:29:22 by jhansen           #+#    #+#             */
-/*   Updated: 2019/07/11 13:29:51 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/07/18 11:50:10 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-/*void	start_process(t_list *stacka, t_list *stackb)
+void	start_process(t_list *stacka, t_list *stackb)
 {
 	int		gnlret;
 	char	*command;
@@ -21,9 +21,9 @@
 	while ((gnlret = get_next_line(0, &command)) > 0)
 	{
 		if (command = "sa")
-			ft_sa(&stacka, &stackb);
+			ft_sa(&stacka);
 		else if (command = "sb")
-			ft_sb(&stacka, &stackb);
+			ft_sb(&stackb);
 		else if (command = "ss")
 			ft_ss(&stacka, &stackb);
 		else if (command = "pa")
@@ -31,15 +31,15 @@
 		else if (command = "pb")
 			ft_pb(&stacka, &stackb);
 		else if (command = "ra")
-			ft_ra(&stacka, &stackb);
+			ft_ra(&stacka);
 		else if (command = "rb")
-			ft_rb(&stacka, &stackb);
+			ft_rb(&stackb);
 		else if (command = "rr")
 			ft_rr(&stacka, &stackb);
 		else if (command = "rra")
-			ft_rra(&stacka, &stackb);
+			ft_rra(&stacka);
 		else if (command = "rrb")
-			ft_rrb(&stacka, &stackb);
+			ft_rrb(&stackb);
 		else if (command = "rrr")
 			ft_rrr(&stacka, &stackb);
 		else
@@ -48,19 +48,7 @@
 			exit;
 		}
 	}
-}*/
-
-/*void	stackb_fill(t_stack **a, t_stack **b)
-{
-	int	i;
-
-	i = stack_size(a);
-	while (i >= 0)
-	{
-		
-		i--;
-	}
-}*/
+}
 
 int		main(int argc, char **argv)
 {
@@ -76,7 +64,6 @@ int		main(int argc, char **argv)
 	print_stack(&temp); //for error checking
 
 	check_errors(argc, argv);
-	//stackb_fill(&temp, &stackb);
 	//start_process(&stacka, &stackb);
 	if (stack_check(&stacka, &stackb) > 0)
 		ft_putstr("KO\n");

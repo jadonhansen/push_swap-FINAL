@@ -6,7 +6,7 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/11 15:38:00 by jhansen           #+#    #+#             */
-/*   Updated: 2019/07/12 14:27:06 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/07/18 11:34:23 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	ft_rb(t_stack **stackb)
 	last = *stackb;
 	while (last->next != NULL)
 		last = last->next;
-	stackb = first->next;
+	*stackb = first->next;
 	first->next = NULL;
 	last->next = first;
 	first->prev = last;

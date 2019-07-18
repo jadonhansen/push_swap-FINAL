@@ -6,7 +6,7 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/11 15:37:41 by jhansen           #+#    #+#             */
-/*   Updated: 2019/07/12 15:54:15 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/07/18 11:36:13 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,8 @@ void	ft_ss(t_stack **stacka, t_stack **stackb)
 {
 	if (stacka && stackb)
 	{
-		ft_sa(*stacka);
-		ft_sb(*stackb);
+		ft_sa(stacka);
+		ft_sb(stackb);
 	}
 }
 
@@ -84,7 +84,7 @@ void	ft_pb(t_stack **stacka, t_stack **stackb)
 			*stacka = (*stacka)->next;
 		else
 			*stacka = NULL;
-		if ((*stacka)
+		if (*stacka)
 			(*stacka)->prev = NULL;
 		if (stackb)
 			add_head_node(stackb, temp);

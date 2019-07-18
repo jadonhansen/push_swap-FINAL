@@ -6,7 +6,7 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/03 10:38:41 by jhansen           #+#    #+#             */
-/*   Updated: 2019/07/12 16:22:12 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/07/18 11:36:47 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ void	ft_ra(t_stack **stacka);
 void	ft_rb(t_stack **stackb);
 void	ft_rr(t_stack **stacka, t_stack **stackb);
 void	ft_rrb(t_stack **stackb);
+void	ft_rra(t_stack **stacka);
 void	ft_rrr(t_stack **stacka, t_stack **stackb);
 
 /*
