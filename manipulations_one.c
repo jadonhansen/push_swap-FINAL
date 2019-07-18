@@ -6,7 +6,7 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/11 15:37:41 by jhansen           #+#    #+#             */
-/*   Updated: 2019/07/18 13:13:11 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/07/18 14:15:00 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ void	ft_sa(t_stack **stacka)
 	int	hold;
 
 	hold = 0;
+	if (!(*stacka) || (stack_size(stacka) < 2))
+		return ;
 	temp = (*stacka)->num;
 	if ((*stacka)->next != NULL)
 	{
@@ -33,6 +35,8 @@ void	ft_sb(t_stack **stackb)
 	int hold;
 
 	hold = 0;
+	if (!(*stackb) || (stack_size(stackb) < 2))
+		return ;
 	temp = (*stackb)->num;
 	if ((*stackb)->next != NULL)
 	{
