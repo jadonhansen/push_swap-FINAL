@@ -6,7 +6,7 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/03 10:38:41 by jhansen           #+#    #+#             */
-/*   Updated: 2019/07/25 16:46:53 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/07/26 11:38:34 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,13 +74,14 @@ int		stack_size(t_stack **head);
 */
 
 void	bigboy(t_stack **a, t_stack **b, int chunk);
+int		find_correct_size(t_stack **a);
 
 /*
 ** push_swap.c
 */
 
 void	push_algo(t_stack **stacka, t_stack **stackb);
-int		find_correct_size(t_stack **a);
+void	klein(t_stack **a);
 void	tiny(t_stack **a, t_stack **b);
 void	small(t_stack **a, t_stack **b);
 

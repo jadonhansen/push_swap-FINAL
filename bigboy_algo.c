@@ -6,11 +6,16 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/25 16:08:44 by jhansen           #+#    #+#             */
-/*   Updated: 2019/07/25 16:16:32 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/07/26 11:32:00 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int		find_correct_size(t_stack **a)
+{
+
+}
 
 void	bigboy(t_stack **a, t_stack **b, int chunk)
 {
