@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   input_validation.c                                 :+:      :+:    :+:   */
+/*   input.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/11 12:44:55 by jhansen           #+#    #+#             */
-/*   Updated: 2019/07/18 16:59:44 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/07/26 14:17:51 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,21 @@
 int		*array_fill(int len, char **arg)
 {
 	int	i;
+	int	j;
 	int	*arr;
 
-	i = 0;
+	i = 1;
+	j = 0;
 	arr = (int *)malloc(sizeof(int) * len);
 	if (arr)
 	{
-		while (arg[i] != '\0')
+		while (i < len)
 		{
-			arr[i] = ft_atoi(arg[i]);
+			arr[j++] = ft_atoi(arg[i]);
 			i++;
 		}
 	}
-	arr[i] = '\0';
+	arr[j] = '\0';
 	return (arr);
 }
 
@@ -45,10 +47,10 @@ void	duplicate_checker(int *array)
 		while (array[i] != '\0')
 		{
 			num = array[i];
-			j = 0;
-			while (array[j] != '\0')
+			j = 1;
+			while (array[j + i] != '\0')
 			{
-				if (array[j] == num)
+				if (array[j + i] == num)
 				{
 					write(1, "Error\n", 6);
 					exit(1);
@@ -65,8 +67,8 @@ void	check_errors(int len, char **arg)
 	int		i;
 	int		*temp;
 
-	i = 0;
-	while (arg[i])
+	i = 1;
+	while (arg[i] != '\0')
 	{
 		if (ft_str_is_numeric(arg[i]) == 0)
 		{
@@ -81,41 +83,40 @@ void	check_errors(int len, char **arg)
 	{
 		while (temp[i] != '\0')
 		{
-			if (i > MAX || i < MIN)
-			{
+			if (temp[i] > MAX || temp[i] < MIN)	
+			{		
 				write(1, "Error\n", 6);
 				exit(1);
 			}
 			i++;
 		}
-		duplicate_checker(temp);
 	}
+	duplicate_checker(temp);
 }
-
 void	do_op(char *command, t_stack **stacka, t_stack **stackb)
 {
 	if (ft_strequ(command, "sa"))
-		ft_sa(stacka);
+		ft_sa(stacka, 0);
 	else if (ft_strequ(command, "sb"))
-		ft_sb(stackb);
+		ft_sb(stackb, 0);
 	else if (ft_strequ(command, "ss"))
-		ft_ss(stacka, stackb);
+		ft_ss(stacka, stackb, 0);
 	else if (ft_strequ(command, "pa"))
-		ft_pa(stacka, stackb);
+		ft_pa(stacka, stackb, 0);
 	else if (ft_strequ(command, "pb"))
-		ft_pb(stacka, stackb);
+		ft_pb(stacka, stackb, 0);
 	else if (ft_strequ(command, "ra"))
-		ft_ra(stacka);
+		ft_ra(stacka, 0);
 	else if (ft_strequ(command, "rb"))
-		ft_rb(stackb);
+		ft_rb(stackb, 0);
 	else if (ft_strequ(command, "rr"))
-		ft_rr(stacka, stackb);
+		ft_rr(stacka, stackb, 0);
 	else if (ft_strequ(command, "rra"))
-		ft_rra(stacka);
+		ft_rra(stacka, 0);
 	else if (ft_strequ(command, "rrb"))
-		ft_rrb(stackb);
+		ft_rrb(stackb, 0);
 	else if (ft_strequ(command, "rrr"))
-		ft_rrr(stacka, stackb);
+		ft_rrr(stacka, stackb, 0);
 	else
 		ft_putstr("Wrong input commmand. Try again!\n");
 }

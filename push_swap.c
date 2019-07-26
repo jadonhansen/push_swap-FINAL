@@ -6,7 +6,7 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/01 15:29:34 by jhansen           #+#    #+#             */
-/*   Updated: 2019/07/26 11:32:00 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/07/26 14:15:32 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,43 +16,44 @@ void	klein(t_stack **a)
 {
 	t_stack *temp;
 
+	temp = *a;
 	if (temp->num > temp->next->num)
-		ft_sa(a);
+		ft_sa(a, 1);
 }
 
-void	tiny(t_stack **a, t_stack **b)
+void	tiny(t_stack **a)
 {
 	int		one;
 	int		two;
 	int		three;
-	t_stack	temp;
+	t_stack	*temp;
 
 	temp = *a;
-	one = a->num;
-	two = a->next->num;
-	three = a->next->next->num;
+	one = temp->num;
+	two = temp->next->num;
+	three = temp->next->next->num;
 	if (one > two && two < three && three > one)	
-		sa(a);
+		ft_sa(a, 1);
 	else if (one > two && two > three && three < one)
 	{
-		sa(a);
-		rra(a);
+		ft_sa(a, 1);
+		ft_rra(a, 1);
 	}
 	else if (one > two && two < three && three < one)
-		ft_ra(a);
+		ft_ra(a, 1);
 	else if (one < two && two > three && three > one)
 	{
-		ft_sa(a);
-		ft_ra(a);
+		ft_sa(a, 1);
+		ft_ra(a, 1);
 	}
 	else if (one < two && two > three && three < one)
-		ft_rra(a);
+		ft_rra(a, 1);
 }
 
-void	small(t_stack **a, t_stack **b)
-{
-
-}
+// void	small(t_stack **a, t_stack **b)
+// {
+	
+// }
 
 void	push_algo(t_stack **stacka, t_stack **stackb)
 {
@@ -62,25 +63,35 @@ void	push_algo(t_stack **stacka, t_stack **stackb)
 	if (size == 2)
 		klein(stacka);
 	else if (size == 3)
-		tiny(stacka, stackb);
-	else if (size == 4 || size == 5)
-		small(stacka, stackb);
-	else if (size > 5)
-	{
-		bigboy(stacka, stackb, find_correct_size(stacka));
-	}
+		tiny(stacka);
+	// else if (size == 4 || size == 5)
+	// 	small(stacka, stackb);
+	// else if (size > 5)
+	// {
+	// 	bigboy(stacka, stackb, find_correct_size(stacka));
+	// }
+	*stackb = NULL;
 }
-
+#include <unistd.h>
 int		main(int argc, char **argv)
 {
 	t_stack	*stacka;
 	t_stack *stackb;
 
 	if (argc < 2)
-		exit (1);
+		return (0);
 	else
-		stacka = stack_fill(argc, argv);
-	check_errors(argc, argv);
+		check_errors(argc, argv);
+	stacka = stack_fill(argc, argv);
+
+	print_stack(&stacka, 'A'); //for checking
+	print_stack(&stackb, 'B');
+
 	push_algo(&stacka, &stackb);
+
+	ft_putstr("\nSORTED LIST:\n\n"); //for shows :)
+	print_stack(&stacka, 'A'); //for checking
+	print_stack(&stackb, 'B');
+
 	return (0);
 }

@@ -6,13 +6,13 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/11 15:38:00 by jhansen           #+#    #+#             */
-/*   Updated: 2019/07/18 13:54:19 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/07/26 14:34:09 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_ra(t_stack **stacka)
+void	ft_ra(t_stack **stacka, int i)
 {
 	t_stack	*first;
 	t_stack	*last;
@@ -27,9 +27,11 @@ void	ft_ra(t_stack **stacka)
 	first->next = NULL;
 	last->next = first;
 	first->prev = last;
+	if (i == 1)
+		write(1, "ra\n", 3);
 }
 
-void	ft_rb(t_stack **stackb)
+void	ft_rb(t_stack **stackb, int i)
 {
 	t_stack	*first;
 	t_stack	*last;
@@ -44,15 +46,17 @@ void	ft_rb(t_stack **stackb)
 	first->next = NULL;
 	last->next = first;
 	first->prev = last;
+	if (i == 1)
+		write(1, "rb\n", 3);
 }
 
-void	ft_rr(t_stack **stacka, t_stack **stackb)
+void	ft_rr(t_stack **stacka, t_stack **stackb, int i)
 {
-	ft_ra(stacka);
-	ft_rb(stackb);
+	ft_ra(stacka, i);
+	ft_rb(stackb, i);
 }
 
-void	ft_rra(t_stack **stacka)
+void	ft_rra(t_stack **stacka, int i)
 {
 	t_stack	*last;
 	t_stack	*second_last;
@@ -70,9 +74,11 @@ void	ft_rra(t_stack **stacka)
 	last->prev = NULL;
 	last->next = *stacka;
 	*stacka = last;
+	if (i == 1)
+		write(1, "rra\n", 4);
 }
 
-void	ft_rrb(t_stack **stackb)
+void	ft_rrb(t_stack **stackb, int i)
 {
 	t_stack	*last;
 	t_stack	*second_last;
@@ -90,4 +96,6 @@ void	ft_rrb(t_stack **stackb)
 	last->prev = NULL;
 	last->next = *stackb;
 	*stackb = last;
+	if (i == 1)
+		write(1, "rrb\n", 4);
 }

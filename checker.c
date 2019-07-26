@@ -6,7 +6,7 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/01 15:29:22 by jhansen           #+#    #+#             */
-/*   Updated: 2019/07/18 17:00:18 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/07/26 14:39:17 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ void	start_process(t_stack **stacka, t_stack **stackb)
 	while ((get_next_line(0, &command)))
 	{
 		do_op(command, stacka, stackb);
-		print_stack(stacka, 'A'); //for error checking
-		print_stack(stackb, 'B');
+		//print_stack(stacka, 'A'); //for error checking
+		//print_stack(stackb, 'B');
 	}
 }
 
@@ -32,11 +32,11 @@ int		main(int argc, char **argv)
 	if (argc < 2)
 		return (0);
 	else
-		stacka = stack_fill(argc, argv);
-	check_errors(argc, argv);
+		check_errors(argc, argv);
+	stacka = stack_fill(argc, argv);
 
-	print_stack(&stacka, 'A'); //for error checking
-	print_stack(&stackb, 'B');
+	//print_stack(&stacka, 'A'); //for error checking
+	//print_stack(&stackb, 'B');
 
 	start_process(&stacka, &stackb);
 	if (stack_check(&stacka, &stackb) > 0)

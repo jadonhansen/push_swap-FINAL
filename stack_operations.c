@@ -6,17 +6,17 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/12 15:55:08 by jhansen           #+#    #+#             */
-/*   Updated: 2019/07/18 15:21:53 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/07/26 12:56:35 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	print_stack(t_stack **stacka, char c)
+void	print_stack(t_stack **stack, char c)
 {
 	t_stack *node;
 
-	node = *stacka;
+	node = *stack;
 	if (node)
 	{
 		printf("--- Stack %c ---\n", c);

@@ -6,13 +6,13 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/11 15:37:41 by jhansen           #+#    #+#             */
-/*   Updated: 2019/07/18 14:15:00 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/07/26 14:33:53 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_sa(t_stack **stacka)
+void	ft_sa(t_stack **stacka, int i)
 {
 	int temp;
 	int	hold;
@@ -27,9 +27,11 @@ void	ft_sa(t_stack **stacka)
 		(*stacka)->num = hold;
 		(*stacka)->next->num = temp;
 	}
+	if (i == 1)
+		write(1, "sa\n", 3);
 }
 
-void	ft_sb(t_stack **stackb)
+void	ft_sb(t_stack **stackb, int i)
 {
 	int temp;
 	int hold;
@@ -44,18 +46,20 @@ void	ft_sb(t_stack **stackb)
 		(*stackb)->num = hold;
 		(*stackb)->next->num = temp;
 	}
+	if (i == 1)
+		write(1, "sb\n", 3);
 }
 
-void	ft_ss(t_stack **stacka, t_stack **stackb)
+void	ft_ss(t_stack **stacka, t_stack **stackb, int i)
 {
 	if (stacka && stackb)
 	{
-		ft_sa(stacka);
-		ft_sb(stackb);
+		ft_sa(stacka, i);
+		ft_sb(stackb, i);
 	}
 }
 
-void	ft_pa(t_stack **stacka, t_stack **stackb)
+void	ft_pa(t_stack **stacka, t_stack **stackb, int i)
 {
 	t_stack	*temp;
 
@@ -75,9 +79,11 @@ void	ft_pa(t_stack **stacka, t_stack **stackb)
 		else if (stacka != NULL)
 			add_head_node(stacka, temp);
 	}
+	if (i == 1)
+		write(1, "pa\n", 3);
 }
 
-void	ft_pb(t_stack **stacka, t_stack **stackb)
+void	ft_pb(t_stack **stacka, t_stack **stackb, int i)
 {
 	t_stack *temp;
 
@@ -97,4 +103,6 @@ void	ft_pb(t_stack **stacka, t_stack **stackb)
 		else if (stackb != NULL)
 			add_head_node(stackb, temp);
 	}
+	if (i == 1)
+		write(1, "pb\n", 3);
 }
