@@ -6,7 +6,7 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/11 15:37:41 by jhansen           #+#    #+#             */
-/*   Updated: 2019/07/26 14:33:53 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/08/01 17:55:04 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,9 +54,11 @@ void	ft_ss(t_stack **stacka, t_stack **stackb, int i)
 {
 	if (stacka && stackb)
 	{
-		ft_sa(stacka, i);
-		ft_sb(stackb, i);
+		ft_sa(stacka, 0);
+		ft_sb(stackb, 0);
 	}
+	if (i == 1)
+		write(1, "ss\n", 3);
 }
 
 void	ft_pa(t_stack **stacka, t_stack **stackb, int i)

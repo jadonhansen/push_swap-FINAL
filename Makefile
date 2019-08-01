@@ -7,6 +7,7 @@ CH_SRC += manipulations_three.c output_validation.c stack_operations.c
 CH_SRC += ./get_next_line/get_next_line.c
 PS_SRC = push_swap.c bigboy_algo.c manipulations_one.c manipulations_two.c
 PS_SRC += manipulations_three.c input.c stack_operations.c output_validation.c
+PS_SRC += sorting_algo.c bigboy_algo.c
 
 all: $(LIB) $(NAME1) $(NAME2)
 

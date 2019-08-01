@@ -6,7 +6,7 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/12 15:55:08 by jhansen           #+#    #+#             */
-/*   Updated: 2019/07/26 12:56:35 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/08/01 13:37:25 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,16 @@ void	print_stack(t_stack **stack, char c)
 	node = *stack;
 	if (node)
 	{
-		printf("--- Stack %c ---\n", c);
+		printf("---- Stack %c ----\n", c);
 		while (node)
 		{
 			ft_putnbr(node->num);
+			ft_putchar('\t');
+			ft_putnbr(node->normed);
 			ft_putendl("");
 			node = node->next;
 		}
-		printf("---------------\n");
+		printf("-----------------\n");
 	}
 }
 
@@ -56,6 +58,7 @@ t_stack	*create_node(int num)
 		node->num = num;
 		node->next = NULL;
 		node->prev = NULL;
+		node->normed = -1;
 	}
 	return (node);
 }

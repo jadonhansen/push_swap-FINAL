@@ -6,66 +6,60 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/11 12:44:55 by jhansen           #+#    #+#             */
-/*   Updated: 2019/07/26 14:17:51 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/08/01 17:52:49 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int		*array_fill(int len, char **arg)
+void	normalize(t_stack **stacka)
+{
+	t_stack	*outer;
+	t_stack	*inner;
+	int		norm;
+
+	outer = *stacka;
+	while (outer)
+	{
+		norm = stack_size(stacka);
+		outer->normed = norm;
+		inner = *stacka;
+		while (inner)
+		{
+			if (outer->num < inner->num)
+				outer->normed--;
+			inner = inner->next;
+		}
+		outer = outer->next;
+	}
+}
+
+void	duplicate_check(char **arg)
 {
 	int	i;
-	int	j;
-	int	*arr;
+	int	k;
 
 	i = 1;
-	j = 0;
-	arr = (int *)malloc(sizeof(int) * len);
-	if (arr)
+	k = 1;
+	while (arg[i] != '\0')
 	{
-		while (i < len)
+		k = i + 1;
+		while (arg[k] != '\0')
 		{
-			arr[j++] = ft_atoi(arg[i]);
-			i++;
-		}
-	}
-	arr[j] = '\0';
-	return (arr);
-}
-
-void	duplicate_checker(int *array)
-{
-	int	i;
-	int	j;
-	int	num;
-
-	num = 0;
-	i = 0;
-	j = 0;
-	if (array)
-	{
-		while (array[i] != '\0')
-		{
-			num = array[i];
-			j = 1;
-			while (array[j + i] != '\0')
+			if (ft_atoi(arg[i]) == ft_atoi(arg[k]))
 			{
-				if (array[j + i] == num)
-				{
-					write(1, "Error\n", 6);
-					exit(1);
-				}
-				j++;
+				write(1, "Error\n", 6);
+				exit (1);
 			}
-			i++;
+			k++;
 		}
+		i++;
 	}
 }
 
-void	check_errors(int len, char **arg)
+void	check_errors(char **arg)
 {
 	int		i;
-	int		*temp;
 
 	i = 1;
 	while (arg[i] != '\0')
@@ -77,21 +71,17 @@ void	check_errors(int len, char **arg)
 		}
 		i++;
 	}
-	i = 0;
-	temp = array_fill(len, arg);
-	if (temp)
+	i = 1;
+	while (arg[i] != '\0')
 	{
-		while (temp[i] != '\0')
+		if (ft_atoi(arg[i]) > MAX || ft_atoi(arg[i]) < MIN)   //will atoi work with converting a number bigger than MAX & MIN.
 		{
-			if (temp[i] > MAX || temp[i] < MIN)	
-			{		
-				write(1, "Error\n", 6);
-				exit(1);
-			}
-			i++;
+			write(1, "Error\n", 6);
+			exit(1);
 		}
+		i++;
 	}
-	duplicate_checker(temp);
+	duplicate_check(arg);
 }
 void	do_op(char *command, t_stack **stacka, t_stack **stackb)
 {

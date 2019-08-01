@@ -6,7 +6,7 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/01 15:29:34 by jhansen           #+#    #+#             */
-/*   Updated: 2019/08/01 13:07:38 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/08/01 17:43:54 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ void	small(t_stack **a, t_stack **b)
 	}
 }
 
-void	push_algo(t_stack **stacka, t_stack **stackb)
+void	allocate_algo(t_stack **stacka, t_stack **stackb)
 {
 	int	size;
 
@@ -84,8 +84,14 @@ void	push_algo(t_stack **stacka, t_stack **stackb)
 		tiny(stacka);
 	else if (size == 4 || size == 5)
 	 	small(stacka, stackb);
-	else if (size > 5)
-		bigboy(stacka, stackb, find_correct_size(stacka));
+	//else if (size > 5 && size < 21)
+		//mediumrare(stacka, stackb);
+	/*else if (size >= 21 && size < 50)
+		welldone(stacka, stackb);
+	else if (size >=  50 && size <= 100)
+		overcooked(stacka, stackb);
+	else if (size > 100 && size <= 500)
+		bigboy(stacka, stackb);*/
 }
 
 int		main(int argc, char **argv)
@@ -96,16 +102,18 @@ int		main(int argc, char **argv)
 	if (argc < 2)
 		return (0);
 	else
-		check_errors(argc, argv);
+		check_errors(argv);
 	stacka = stack_fill(argc, argv);
-	if (stack_check(stacka, stackb) == 0)
+	if (stack_check(&stacka, &stackb) == 0)
 		return (0);
 	else
 	{
+		normalize(&stacka);
+
 		print_stack(&stacka, 'A'); //for checking
 		print_stack(&stackb, 'B'); //
 
-		push_algo(&stacka, &stackb);
+		//allocate_algo(&stacka, &stackb);
 
 		ft_putstr("\nSORTED LIST:\n\n"); //for shows :)
 		print_stack(&stacka, 'A'); //for checking
