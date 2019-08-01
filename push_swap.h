@@ -6,7 +6,7 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/03 10:38:41 by jhansen           #+#    #+#             */
-/*   Updated: 2019/07/26 14:33:22 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/08/01 11:38:58 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include "./get_next_line/get_next_line.h"
 # include <stdlib.h>
 # include <stdio.h>
+# include <unistd.h>
 
 typedef struct		s_stack
 {
@@ -74,7 +75,8 @@ int		stack_size(t_stack **head);
 */
 
 void	bigboy(t_stack **a, t_stack **b, int chunk);
-int		find_correct_size(t_stack **a);
+int		smallest_pos(t_stack **head);
+void	ra_rra_pos(t_stack **a, int pos);
 
 /*
 ** push_swap.c

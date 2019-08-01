@@ -1,7 +1,7 @@
 NAME1 = checker
 NAME2 = push_swap
 LIB = libft
-FLAGS = -Wall -Werror -Wextra
+FLAGS = -Wall -Werror -Wextra -g
 CH_SRC = checker.c input.c manipulations_one.c manipulations_two.c
 CH_SRC += manipulations_three.c output_validation.c stack_operations.c
 CH_SRC += ./get_next_line/get_next_line.c

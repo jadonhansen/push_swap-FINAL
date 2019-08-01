@@ -6,7 +6,7 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/01 15:29:34 by jhansen           #+#    #+#             */
-/*   Updated: 2019/07/26 14:15:32 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/08/01 12:07:15 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,10 +50,34 @@ void	tiny(t_stack **a)
 		ft_rra(a, 1);
 }
 
-// void	small(t_stack **a, t_stack **b)
-// {
-	
-// }
+void	small(t_stack **a, t_stack **b)
+{
+	int	size;
+	int	pos;
+	int	i;
+
+	i = 0;
+	size = stack_size(a);
+	while (i < (size - 3))
+	{
+		pos = smallest_pos(a);
+		print_stack(a, 'A');
+		print_stack(b, 'B');
+		ra_rra_pos(a, pos);
+		print_stack(a, 'A');
+		print_stack(b, 'B');
+		ft_pb(a, b, 1);
+		print_stack(a, 'A');
+		print_stack(b, 'B');
+		i++;
+	}
+	tiny(a);
+	while (i > 0)
+	{
+		ft_pa(a, b, 1);
+		i--;
+	}
+}
 
 void	push_algo(t_stack **stacka, t_stack **stackb)
 {
@@ -64,15 +88,14 @@ void	push_algo(t_stack **stacka, t_stack **stackb)
 		klein(stacka);
 	else if (size == 3)
 		tiny(stacka);
-	// else if (size == 4 || size == 5)
-	// 	small(stacka, stackb);
+	else if (size == 4 || size == 5)
+	 	small(stacka, stackb);
 	// else if (size > 5)
 	// {
 	// 	bigboy(stacka, stackb, find_correct_size(stacka));
 	// }
-	*stackb = NULL;
 }
-#include <unistd.h>
+
 int		main(int argc, char **argv)
 {
 	t_stack	*stacka;
