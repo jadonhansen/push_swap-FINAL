@@ -6,7 +6,7 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/03 10:38:41 by jhansen           #+#    #+#             */
-/*   Updated: 2019/08/01 11:38:58 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/08/01 13:06:57 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,7 @@ int		stack_size(t_stack **head);
 void	bigboy(t_stack **a, t_stack **b, int chunk);
 int		smallest_pos(t_stack **head);
 void	ra_rra_pos(t_stack **a, int pos);
+int		find_correct_size(t_stack **list);
 
 /*
 ** push_swap.c

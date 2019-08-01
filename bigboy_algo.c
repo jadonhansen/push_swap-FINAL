@@ -6,7 +6,7 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/25 16:08:44 by jhansen           #+#    #+#             */
-/*   Updated: 2019/08/01 12:11:13 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/08/01 13:06:31 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,10 @@ void	ra_rra_pos(t_stack **a, int pos)
 
 }
 
-// void	bigboy(t_stack **a, t_stack **b, int chunk)
-// {
+int		find_correct_size(t_stack **list)
+{
+}
 
-// }
+void	bigboy(t_stack **a, t_stack **b, int chunk)
+{
+}

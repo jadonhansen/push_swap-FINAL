@@ -6,7 +6,7 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/01 15:29:34 by jhansen           #+#    #+#             */
-/*   Updated: 2019/08/01 12:07:15 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/08/01 13:07:38 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,14 +61,8 @@ void	small(t_stack **a, t_stack **b)
 	while (i < (size - 3))
 	{
 		pos = smallest_pos(a);
-		print_stack(a, 'A');
-		print_stack(b, 'B');
 		ra_rra_pos(a, pos);
-		print_stack(a, 'A');
-		print_stack(b, 'B');
 		ft_pb(a, b, 1);
-		print_stack(a, 'A');
-		print_stack(b, 'B');
 		i++;
 	}
 	tiny(a);
@@ -90,10 +84,8 @@ void	push_algo(t_stack **stacka, t_stack **stackb)
 		tiny(stacka);
 	else if (size == 4 || size == 5)
 	 	small(stacka, stackb);
-	// else if (size > 5)
-	// {
-	// 	bigboy(stacka, stackb, find_correct_size(stacka));
-	// }
+	else if (size > 5)
+		bigboy(stacka, stackb, find_correct_size(stacka));
 }
 
 int		main(int argc, char **argv)
@@ -106,15 +98,18 @@ int		main(int argc, char **argv)
 	else
 		check_errors(argc, argv);
 	stacka = stack_fill(argc, argv);
+	if (stack_check(stacka, stackb) == 0)
+		return (0);
+	else
+	{
+		print_stack(&stacka, 'A'); //for checking
+		print_stack(&stackb, 'B'); //
 
-	print_stack(&stacka, 'A'); //for checking
-	print_stack(&stackb, 'B');
+		push_algo(&stacka, &stackb);
 
-	push_algo(&stacka, &stackb);
-
-	ft_putstr("\nSORTED LIST:\n\n"); //for shows :)
-	print_stack(&stacka, 'A'); //for checking
-	print_stack(&stackb, 'B');
-
+		ft_putstr("\nSORTED LIST:\n\n"); //for shows :)
+		print_stack(&stacka, 'A'); //for checking
+		print_stack(&stackb, 'B'); //		
+	}
 	return (0);
 }
