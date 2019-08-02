@@ -6,7 +6,7 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/01 15:29:34 by jhansen           #+#    #+#             */
-/*   Updated: 2019/08/01 17:43:54 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/08/02 10:31:11 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,8 +84,8 @@ void	allocate_algo(t_stack **stacka, t_stack **stackb)
 		tiny(stacka);
 	else if (size == 4 || size == 5)
 	 	small(stacka, stackb);
-	//else if (size > 5 && size < 21)
-		//mediumrare(stacka, stackb);
+	else if (size > 5 && size < 21)
+		mediumrare(stacka, stackb);
 	/*else if (size >= 21 && size < 50)
 		welldone(stacka, stackb);
 	else if (size >=  50 && size <= 100)
@@ -113,7 +113,7 @@ int		main(int argc, char **argv)
 		print_stack(&stacka, 'A'); //for checking
 		print_stack(&stackb, 'B'); //
 
-		//allocate_algo(&stacka, &stackb);
+		allocate_algo(&stacka, &stackb);
 
 		ft_putstr("\nSORTED LIST:\n\n"); //for shows :)
 		print_stack(&stacka, 'A'); //for checking

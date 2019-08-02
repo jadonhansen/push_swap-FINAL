@@ -6,7 +6,7 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/01 14:42:34 by jhansen           #+#    #+#             */
-/*   Updated: 2019/08/01 17:04:51 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/08/02 12:23:30 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,12 @@ int		smallest_pos(t_stack **head)
 	i = 0;
 	pos = 0;
 	temp = *head;
-	smallest = temp->num;
+	smallest = temp->normed;
 	while (temp)
 	{
-		if (smallest > temp->num)
+		if (smallest > temp->normed)
 		{
-			smallest = temp->num;
+			smallest = temp->normed;
 			pos = i;
 		}
 	 	temp = temp->next;
@@ -61,34 +61,49 @@ void	ra_rra_pos(t_stack **a, int pos)
 
 }
 
-/*void	mediumrare(t_stack **a, t_stack **b)
+void	mediumrare(t_stack **a, t_stack **b)
 {
+	t_stack	*temp;
 	int		chunk;
-	int		i;
 	int		pos;
 	int		size;
+	int		i;
 
-	i = 1;
+	i = 0;
 	chunk = 5;
+	temp = *a;
 	size = stack_size(a);
-	while (i < size - i)
+	pos = smallest_pos(a);
+	while (temp && *a)
 	{
-		chunk = chunk + 5;
-		if (!(*a))
-			break ;
-		while ((*a))
+		if (i == pos)
 		{
-			if ((*a)->normed <= chunk && (*a)->normed > chunk - 5)
+			ft_putnbr(chunk); //
+			ft_putchar(' ');
+			ft_putnbr(i);
+			ft_putchar(' ');
+			ft_putnbr(pos);
+			ft_putchar(' '); //
+			if (temp->normed <= chunk)
 			{
-				pos = smallest_pos(a);
 				ra_rra_pos(a, pos);
 				ft_pb(a, b, 1);
-				i++;
+				pos = smallest_pos(a);
+				i = 0;
+				temp = *a;
 			}
-			*a = (*a)->next;
+			else
+				chunk = chunk + 5;
 		}
+		else
+		{
+			temp = temp->next;
+			i++;
+		}
+		if (pos == 0)
+			break ;
 	}
-}*/
+}
 
 /*void	welldone(t_stack **a, t_stack **b)
 {
