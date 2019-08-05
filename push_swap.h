@@ -6,7 +6,7 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/03 10:38:41 by jhansen           #+#    #+#             */
-/*   Updated: 2019/08/01 17:42:52 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/08/05 14:29:47 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,11 +81,21 @@ void	bigboy(t_stack **a, t_stack **b);
 ** sorting_algo.c
 */
 
-int		smallest_pos(t_stack **head);
-void	ra_rra_pos(t_stack **a, int pos);
+
 void	mediumrare(t_stack **a, t_stack **b);
 void	welldone(t_stack **a, t_stack **b);
 void	overcooked(t_stack **a, t_stack **b);
+
+/*
+** stack_ops_algo.c
+*/
+
+int		smallest_pos(t_stack **head);
+int		biggest_pos(t_stack **head);
+void	ra_rra_pos(t_stack **a, int pos);
+void	rb_rrb_pos(t_stack **b, int pos);
+void	pushback_all(t_stack **a, t_stack **b);
+int		compare_smallest_pos(t_stack **b, int chunk);
 
 /*
 ** push_swap.c

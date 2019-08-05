@@ -6,7 +6,7 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/11 15:37:41 by jhansen           #+#    #+#             */
-/*   Updated: 2019/08/01 17:55:04 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/08/05 15:52:07 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,38 +14,37 @@
 
 void	ft_sa(t_stack **stacka, int i)
 {
-	int temp;
-	int	hold;
+	t_stack *first;
+	t_stack *second;
 
-	hold = 0;
 	if (!(*stacka) || (stack_size(stacka) < 2))
 		return ;
-	temp = (*stacka)->num;
-	if ((*stacka)->next != NULL)
-	{
-		hold = (*stacka)->next->num;
-		(*stacka)->num = hold;
-		(*stacka)->next->num = temp;
-	}
+	first = (*stacka);
+	second = (*stacka)->next;
+
+	first->prev = second;
+	first->next = second->next;
+	second->prev = NULL;
+	second->next = first;
+	*stacka = second;
 	if (i == 1)
 		write(1, "sa\n", 3);
 }
 
 void	ft_sb(t_stack **stackb, int i)
 {
-	int temp;
-	int hold;
+	t_stack *first;
+	t_stack *second;
 
-	hold = 0;
 	if (!(*stackb) || (stack_size(stackb) < 2))
 		return ;
-	temp = (*stackb)->num;
-	if ((*stackb)->next != NULL)
-	{
-		hold = (*stackb)->next->num;
-		(*stackb)->num = hold;
-		(*stackb)->next->num = temp;
-	}
+	first = (*stackb);
+	second = (*stackb)->next;
+	first->next = second->next;
+	first->prev = second;
+	second->prev = NULL;
+	second->next = first;
+	*stackb = second;
 	if (i == 1)
 		write(1, "sb\n", 3);
 }
