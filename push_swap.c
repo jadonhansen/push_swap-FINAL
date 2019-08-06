@@ -6,7 +6,7 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/01 15:29:34 by jhansen           #+#    #+#             */
-/*   Updated: 2019/08/02 10:31:11 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/08/06 13:02:41 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	klein(t_stack **a)
 
 	temp = *a;
 	if (temp->num > temp->next->num)
-		ft_sa(a, 1);
+		ft_sa(a, 0);
 }
 
 void	tiny(t_stack **a)
@@ -33,21 +33,21 @@ void	tiny(t_stack **a)
 	two = temp->next->num;
 	three = temp->next->next->num;
 	if (one > two && two < three && three > one)	
-		ft_sa(a, 1);
+		ft_sa(a, 0);
 	else if (one > two && two > three && three < one)
 	{
-		ft_sa(a, 1);
-		ft_rra(a, 1);
+		ft_sa(a, 0);
+		ft_rra(a, 0);
 	}
 	else if (one > two && two < three && three < one)
-		ft_ra(a, 1);
+		ft_ra(a, 0);
 	else if (one < two && two > three && three > one)
 	{
-		ft_sa(a, 1);
-		ft_ra(a, 1);
+		ft_sa(a, 0);
+		ft_ra(a, 0);
 	}
 	else if (one < two && two > three && three < one)
-		ft_rra(a, 1);
+		ft_rra(a, 0);
 }
 
 void	small(t_stack **a, t_stack **b)
@@ -62,13 +62,13 @@ void	small(t_stack **a, t_stack **b)
 	{
 		pos = smallest_pos(a);
 		ra_rra_pos(a, pos);
-		ft_pb(a, b, 1);
+		ft_pb(a, b, 0);
 		i++;
 	}
 	tiny(a);
 	while (i > 0)
 	{
-		ft_pa(a, b, 1);
+		ft_pa(a, b, 0);
 		i--;
 	}
 }
@@ -86,12 +86,12 @@ void	allocate_algo(t_stack **stacka, t_stack **stackb)
 	 	small(stacka, stackb);
 	else if (size > 5 && size < 21)
 		mediumrare(stacka, stackb);
-	/*else if (size >= 21 && size < 50)
+	else if (size >= 21 && size < 50)
 		welldone(stacka, stackb);
 	else if (size >=  50 && size <= 100)
 		overcooked(stacka, stackb);
-	else if (size > 100 && size <= 500)
-		bigboy(stacka, stackb);*/
+	//else if (size > 100 && size <= 500)
+		//bigboy(stacka, stackb);
 }
 
 int		main(int argc, char **argv)
@@ -109,15 +109,7 @@ int		main(int argc, char **argv)
 	else
 	{
 		normalize(&stacka);
-
-		print_stack(&stacka, 'A'); //for checking
-		print_stack(&stackb, 'B'); //
-
 		allocate_algo(&stacka, &stackb);
-
-		ft_putstr("\nSORTED LIST:\n\n"); //for shows :)
-		print_stack(&stacka, 'A'); //for checking
-		print_stack(&stackb, 'B'); //		
 	}
 	return (0);
 }

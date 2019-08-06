@@ -6,7 +6,7 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/12 15:55:08 by jhansen           #+#    #+#             */
-/*   Updated: 2019/08/01 13:37:25 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/08/06 11:52:16 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,13 @@ t_stack	*stack_fill(int arc, char **arg)
 	t_stack	*stack;
 	t_stack	*node;
 	int		i;
-
+	arc = 1;
 	i = 1;
-	stack = create_node(ft_atoi(arg[1]));
-	while (++i < arc)
+
+	while (ft_strequ(arg[i], "-v") || ft_strequ(arg[i], "-c"))
+		i++;
+	stack = create_node(ft_atoi(arg[i]));
+	while (arg[++i] != '\0')
 	{
 		node = create_node(ft_atoi(arg[i]));
 		add_tail_node(&stack, node);

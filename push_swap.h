@@ -6,7 +6,7 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/03 10:38:41 by jhansen           #+#    #+#             */
-/*   Updated: 2019/08/05 14:29:47 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/08/06 12:54:02 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,13 +56,16 @@ void	add_tail_node(t_stack **stack, t_stack *node);
 void	add_head_node(t_stack **stack, t_stack *node);
 
 /*
-**	input.c
+**	input_one.c && input_two.c
 */
 
 void	normalize(t_stack **stacka);
 void	check_errors(char **arg);
 void	duplicate_check(char **arg);
-void	do_op(char *command, t_stack **stacka, t_stack **stackb);
+void	do_op(int flag, char *command, t_stack **stacka, t_stack **stackb);
+int		flag_check(char **arr);
+int		string_input(char *str);
+char	**fill_from_string(char **arg);
 
 /*
 **	output_validation.c
