@@ -6,7 +6,7 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/06 12:16:53 by jhansen           #+#    #+#             */
-/*   Updated: 2019/08/06 13:00:57 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/08/07 16:59:17 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,7 @@ int		flag_check(char **arr)
 	int	i;
 	int	v;
 	int	c;
-	int	count;
 
-	count = 0;
 	v = 0;
 	c = 0;
 	i = 1;
@@ -37,40 +35,40 @@ int		flag_check(char **arr)
 		return (1);
 	else if (v == 0 && c == 2)
 		return (2);
-	return (count);
+	return (0);
 }
 
-int		string_input(char *str)
+int		string_input(char **str)
 {
 	int	i;
+	int	j;
 	int	check;
 
 	check = 0;
 	i = 0;
-	while (str[i] != '\0')
+	j = 0;
+	while ((ft_strequ(str[i], "-v") || ft_strequ(str[i], "-c")) && str[i] != '\0')
+		i++;
+	while (str[i][j] != '\0')
 	{
-		if (str[i] == ' ')
+		if (str[i][j] == ' ')
 		{
 			check = 1;
 			break ;
 		}
-		i++;
+		j++;	
 	}
 	return (check);
 }
 
-char	**fill_from_string(char **arg) //need to do
+char	**fill_from_string(char **arg)
 {
 	int		i;
-	int		flagcount;
 	char	**arr;
 
-	flagcount = 0;
-	i = 1;
-	while (ft_strequ(arg[i], "-v") || ft_strequ(arg[i], "-c"))
-	{
+	i = 0;
+	while ((ft_strequ(arg[i], "-v") || ft_strequ(arg[i], "-c")) && arg[i] != '\0')
 		i++;
-		flagcount++;
-	}
+	arr = ft_strsplit(arg[i], ' ');
 	return (arr);
 }

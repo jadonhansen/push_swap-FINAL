@@ -6,7 +6,7 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/01 15:29:34 by jhansen           #+#    #+#             */
-/*   Updated: 2019/08/06 13:02:41 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/08/07 17:18:52 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	klein(t_stack **a)
 
 	temp = *a;
 	if (temp->num > temp->next->num)
-		ft_sa(a, 0);
+		ft_sa(a, 1);
 }
 
 void	tiny(t_stack **a)
@@ -33,21 +33,21 @@ void	tiny(t_stack **a)
 	two = temp->next->num;
 	three = temp->next->next->num;
 	if (one > two && two < three && three > one)	
-		ft_sa(a, 0);
+		ft_sa(a, 1);
 	else if (one > two && two > three && three < one)
 	{
-		ft_sa(a, 0);
-		ft_rra(a, 0);
+		ft_sa(a, 1);
+		ft_rra(a, 1);
 	}
 	else if (one > two && two < three && three < one)
-		ft_ra(a, 0);
+		ft_ra(a, 1);
 	else if (one < two && two > three && three > one)
 	{
-		ft_sa(a, 0);
-		ft_ra(a, 0);
+		ft_sa(a, 1);
+		ft_ra(a, 1);
 	}
 	else if (one < two && two > three && three < one)
-		ft_rra(a, 0);
+		ft_rra(a, 1);
 }
 
 void	small(t_stack **a, t_stack **b)
@@ -62,13 +62,13 @@ void	small(t_stack **a, t_stack **b)
 	{
 		pos = smallest_pos(a);
 		ra_rra_pos(a, pos);
-		ft_pb(a, b, 0);
+		ft_pb(a, b, 1);
 		i++;
 	}
 	tiny(a);
 	while (i > 0)
 	{
-		ft_pa(a, b, 0);
+		ft_pa(a, b, 1);
 		i--;
 	}
 }
@@ -98,16 +98,25 @@ int		main(int argc, char **argv)
 {
 	t_stack	*stacka;
 	t_stack *stackb;
+	char	**array;
 
 	if (argc < 2)
 		return (0);
 	else
-		check_errors(argv);
-	stacka = stack_fill(argc, argv);
-	if (stack_check(&stacka, &stackb) == 0)
-		return (0);
-	else
 	{
+		if (string_input(&argv[1]))
+		{
+			array = fill_from_string(&argv[1]);
+			check_errors(&array[1]);
+			stacka = stack_fill(array);
+		}
+		else
+		{
+			check_errors(&argv[1]);
+			stacka = stack_fill(&argv[1]);
+		}
+		if (stack_check(&stacka, &stackb) == 0)
+			return (0);
 		normalize(&stacka);
 		allocate_algo(&stacka, &stackb);
 	}

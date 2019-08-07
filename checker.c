@@ -6,7 +6,7 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/01 15:29:22 by jhansen           #+#    #+#             */
-/*   Updated: 2019/08/06 13:01:01 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/08/07 16:59:28 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,14 @@ void	start_process(t_stack **stacka, t_stack **stackb, int flag)
 			print_stack(stacka, 'A');
 			print_stack(stackb, 'B');
 		}
-		else if (flag == 2 || flag == 3)
+		if (flag == 2 || flag == 3)
 			count++;
 	}
 	if (flag == 2 || flag == 3)
 	{
-		ft_putstr("\n\nCOMMAND COUNT:\n");
+		ft_putstr("\nCOMMAND COUNT: ");
 		ft_putnbr(count);
+		ft_putstr("\n\n");
 	}
 }
 
@@ -53,18 +54,17 @@ int		main(int argc, char **argv)
 		return (0);
 	else
 	{
-		if (string_input(argv[1]))
+		flag = flag_check(argv);
+		if (string_input(&argv[1]))
 		{
-			array = fill_from_string(argv);
-			check_errors(argv);
-			stacka = stack_fill(argc, argv);
-			flag = flag_check(array);
+			array = fill_from_string(&argv[1]);
+			check_errors(&array[1]);
+			stacka = stack_fill(array);
 		}
 		else
 		{
-			check_errors(argv);
-			stacka = stack_fill(argc, argv);
-			flag = flag_check(argv);
+			check_errors(&argv[1]);
+			stacka = stack_fill(&argv[1]);
 		}
 		normalize(&stacka);
 		start_process(&stacka, &stackb, flag);

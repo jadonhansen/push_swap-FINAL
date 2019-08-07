@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_operations.c                                 :+:      :+:    :+:   */
+/*   stack_ops.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/12 15:55:08 by jhansen           #+#    #+#             */
-/*   Updated: 2019/08/06 11:52:16 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/08/07 16:28:29 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,14 +32,13 @@ void	print_stack(t_stack **stack, char c)
 	}
 }
 
-t_stack	*stack_fill(int arc, char **arg)
+t_stack	*stack_fill(char **arg)
 {
 	t_stack	*stack;
 	t_stack	*node;
 	int		i;
-	arc = 1;
-	i = 1;
 
+	i = 0;
 	while (ft_strequ(arg[i], "-v") || ft_strequ(arg[i], "-c"))
 		i++;
 	stack = create_node(ft_atoi(arg[i]));

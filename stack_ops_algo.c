@@ -6,7 +6,7 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/05 11:02:23 by jhansen           #+#    #+#             */
-/*   Updated: 2019/08/06 13:04:01 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/08/07 17:07:39 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ void	ra_rra_pos(t_stack **a, int pos)
 		pos = size - pos;
 		while (pos != 0)
 		{
-			ft_rra(a, 0);
+			ft_rra(a, 1);
 			pos--;
 		}
 	}
@@ -78,7 +78,7 @@ void	ra_rra_pos(t_stack **a, int pos)
 	{
 		while (pos != 0)
 		{
-			ft_ra(a, 0);
+			ft_ra(a, 1);
 			pos--;
 		}
 	}
@@ -94,7 +94,7 @@ void	rb_rrb_pos(t_stack **b, int pos)
 		pos = size - pos;
 		while (pos != 0)
 		{
-			ft_rrb(b, 0);
+			ft_rrb(b, 1);
 			pos--;
 		}
 	}
@@ -102,7 +102,7 @@ void	rb_rrb_pos(t_stack **b, int pos)
 	{
 		while (pos != 0)
 		{
-			ft_rb(b, 0);
+			ft_rb(b, 1);
 			pos--;
 		}
 	}
@@ -161,7 +161,7 @@ void	pushback_all(t_stack **a, t_stack **b)
 	{
 		pos = biggest_pos(b);
 		rb_rrb_pos(b, pos);
-		ft_pa(a, b, 0);
+		ft_pa(a, b, 1);
 		i--;
 	}
 }
