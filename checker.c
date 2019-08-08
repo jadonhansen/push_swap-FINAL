@@ -6,7 +6,7 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/01 15:29:22 by jhansen           #+#    #+#             */
-/*   Updated: 2019/08/08 11:52:51 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/08/08 13:05:11 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ void	start_process(t_stack **stacka, t_stack **stackb, int flag)
 	{
 		print_stack(stacka, 'A');
 		print_stack(stackb, 'B');
+		ft_putstr("\n\n");
 	}
 	while ((get_next_line(0, &command)))
 	{
@@ -30,13 +31,14 @@ void	start_process(t_stack **stacka, t_stack **stackb, int flag)
 		{
 			print_stack(stacka, 'A');
 			print_stack(stackb, 'B');
+			ft_putstr("\n\n");
 		}
 		if (flag == 2 || flag == 3)
 			count++;
 	}
 	if (flag == 2 || flag == 3)
 	{
-		ft_putstr("\nCOMMAND COUNT: ");
+		ft_putstr("COMMAND COUNT: ");
 		ft_putnbr(count);
 		ft_putstr("\n\n");
 	}

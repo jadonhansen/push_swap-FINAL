@@ -6,7 +6,7 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/05 11:02:23 by jhansen           #+#    #+#             */
-/*   Updated: 2019/08/07 17:07:39 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/08/08 13:36:18 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -164,4 +164,17 @@ void	pushback_all(t_stack **a, t_stack **b)
 		ft_pa(a, b, 1);
 		i--;
 	}
+}
+
+int		swap_check(t_stack **a)
+{
+	t_stack	*temp;
+
+	temp = *a;
+	if (*a && (*a)->next)
+	{
+		if (temp->normed > temp->next->normed)
+			return (1);
+	}
+	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/01 14:42:34 by jhansen           #+#    #+#             */
-/*   Updated: 2019/08/05 16:10:18 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/08/08 13:45:46 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,10 +68,18 @@ void	welldone(t_stack **a, t_stack **b)
 		// 		klein(a);
 		// 		flag = 0;
 		// 		break;
-		// 	}	
-			pos = compare_smallest_pos(a, chunk);
-			ra_rra_pos(a, pos);
-			ft_pb(a, b, 1);
+		// 	}
+			if (swap_check(a))   //neeeds testing for efficiecny
+			{
+				ft_sa(a, 1);
+				ft_pb(a, b, 1);
+			}
+			else
+			{
+				pos = compare_smallest_pos(a, chunk);
+				ra_rra_pos(a, pos);
+				ft_pb(a, b, 1);
+			}
 			i++;
 		}
 	}
@@ -102,9 +110,17 @@ void	overcooked(t_stack **a, t_stack **b)
 		// 		flag = 0;
 		// 		break;
 		// 	}	
-			pos = compare_smallest_pos(a, chunk);
-			ra_rra_pos(a, pos);
-			ft_pb(a, b, 1);
+			if (swap_check(a))
+			{
+				ft_sa(a, 1);
+				ft_pb(a, b, 1);
+			}
+			else
+			{
+				pos = compare_smallest_pos(a, chunk);
+				ra_rra_pos(a, pos);
+				ft_pb(a, b, 1);
+			}
 			i++;
 		}
 	}

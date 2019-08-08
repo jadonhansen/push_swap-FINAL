@@ -6,7 +6,7 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/03 10:38:41 by jhansen           #+#    #+#             */
-/*   Updated: 2019/08/07 16:34:47 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/08/08 13:19:50 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,6 +99,7 @@ void	ra_rra_pos(t_stack **a, int pos);
 void	rb_rrb_pos(t_stack **b, int pos);
 void	pushback_all(t_stack **a, t_stack **b);
 int		compare_smallest_pos(t_stack **b, int chunk);
+int		swap_check(t_stack **a);
 
 /*
 ** push_swap.c
