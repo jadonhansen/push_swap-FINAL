@@ -1,16 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   output_validation.c                                :+:      :+:    :+:   */
+/*   output_check.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/11 12:46:57 by jhansen           #+#    #+#             */
-/*   Updated: 2019/07/11 13:18:45 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/08/12 18:00:39 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	ft_error(int i)
+{
+	if (i == 1)
+	{
+		write(1, "Error\n", 6);
+		exit(1);
+	}
+}
 
 int		stack_check(t_stack **stacka, t_stack **stackb)
 {

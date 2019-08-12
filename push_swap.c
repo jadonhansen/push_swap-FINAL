@@ -6,7 +6,7 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/01 15:29:34 by jhansen           #+#    #+#             */
-/*   Updated: 2019/08/08 13:41:59 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/08/12 17:45:48 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	tiny(t_stack **a)
 	one = temp->num;
 	two = temp->next->num;
 	three = temp->next->next->num;
-	if (one > two && two < three && three > one)	
+	if (one > two && two < three && three > one)
 		ft_sa(a, 1);
 	else if (one > two && two > three && three < one)
 	{
@@ -83,15 +83,19 @@ void	allocate_algo(t_stack **stacka, t_stack **stackb)
 	else if (size == 3)
 		tiny(stacka);
 	else if (size == 4 || size == 5)
-	 	small(stacka, stackb);
+		small(stacka, stackb);
 	else if (size > 5 && size < 21)
-		mediumrare(stacka, stackb);
-	else if (size >= 21 && size < 50)
-		welldone(stacka, stackb);
-	else if (size >=  50 && size <= 100)
-		overcooked(stacka, stackb);
-	//else if (size > 100 && size <= 500)
-		//bigboy(stacka, stackb);
+		sort_twenty(stacka, stackb);
+	else if (size >= 21 && size <= 50)
+		sort_fifty(stacka, stackb);
+	else if (size > 50 && size <= 100)
+		sort_hundred(stacka, stackb);
+	else if (size > 100 && size <= 250)
+		sort_twofifty(stacka, stackb);
+	else if (size > 250 && size <= 500)
+		sort_fivehundred(stacka, stackb);
+	else if (size > 500)
+		sort_plus(stacka, stackb);
 }
 
 int		main(int argc, char **argv)

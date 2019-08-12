@@ -6,7 +6,7 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/05 11:02:23 by jhansen           #+#    #+#             */
-/*   Updated: 2019/08/08 13:36:18 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/08/12 18:17:24 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 int		smallest_pos(t_stack **head)
 {
-	int	pos;
-	int	smallest;
-	int	i;
-	t_stack *temp;
+	int		pos;
+	int		smallest;
+	int		i;
+	t_stack	*temp;
 
 	i = 0;
 	pos = 0;
@@ -30,7 +30,7 @@ int		smallest_pos(t_stack **head)
 			smallest = temp->normed;
 			pos = i;
 		}
-	 	temp = temp->next;
+		temp = temp->next;
 		i++;
 	}
 	return (pos);
@@ -38,9 +38,9 @@ int		smallest_pos(t_stack **head)
 
 int		biggest_pos(t_stack **head)
 {
-	int	pos;
-	int	biggest;
-	int	i;
+	int		pos;
+	int		biggest;
+	int		i;
 	t_stack	*temp;
 
 	i = 0;
@@ -54,7 +54,7 @@ int		biggest_pos(t_stack **head)
 			biggest = temp->normed;
 			pos = i;
 		}
-	 	temp = temp->next;
+		temp = temp->next;
 		i++;
 	}
 	return (pos);
@@ -112,10 +112,10 @@ int		compare_smallest_pos(t_stack **b, int chunk)
 {
 	t_stack	*begin;
 	t_stack	*end;
-	int	pos_begin;
-	int	pos_end;
-	int	i;
-	int	j;
+	int		pos_begin;
+	int		pos_end;
+	int		i;
+	int		j;
 
 	i = 0;
 	pos_begin = 0;
@@ -130,7 +130,7 @@ int		compare_smallest_pos(t_stack **b, int chunk)
 		if (begin->normed <= chunk)
 		{
 			pos_begin = i;
-			break;
+			break ;
 		}
 		begin = begin->next;
 		i++;
@@ -140,7 +140,7 @@ int		compare_smallest_pos(t_stack **b, int chunk)
 		if (end->normed <= chunk)
 		{
 			pos_end = j - 1;
-			break;
+			break ;
 		}
 		end = end->prev;
 		j--;
@@ -164,17 +164,4 @@ void	pushback_all(t_stack **a, t_stack **b)
 		ft_pa(a, b, 1);
 		i--;
 	}
-}
-
-int		swap_check(t_stack **a)
-{
-	t_stack	*temp;
-
-	temp = *a;
-	if (*a && (*a)->next)
-	{
-		if (temp->normed > temp->next->normed)
-			return (1);
-	}
-	return (0);
 }

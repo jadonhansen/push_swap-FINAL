@@ -6,7 +6,7 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/11 12:44:55 by jhansen           #+#    #+#             */
-/*   Updated: 2019/08/08 12:49:21 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/08/12 17:58:59 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,8 @@ void	duplicate_check(char **arg)
 
 	i = 0;
 	k = 0;
-	while ((ft_strequ(arg[i], "-v") || ft_strequ(arg[i], "-c")) && arg[i] != '\0')
+	while (((ft_strequ(arg[i], "-v") || ft_strequ(arg[i], "-c"))
+		&& arg[i] != '\0'))
 		i++;
 	while (arg[i] != '\0')
 	{
@@ -49,10 +50,7 @@ void	duplicate_check(char **arg)
 		while (arg[k] != '\0')
 		{
 			if (ft_atoi(arg[i]) == ft_atoi(arg[k]))
-			{
-				write(1, "Error\n", 6);
-				exit (1);
-			}
+				ft_error(1);
 			k++;
 		}
 		i++;
@@ -65,25 +63,20 @@ void	check_errors(char **arg)
 	int		j;
 
 	i = 0;
-	while ((ft_strequ(arg[i], "-v") || ft_strequ(arg[i], "-c")) && arg[i] != '\0')
+	while (((ft_strequ(arg[i], "-v") || ft_strequ(arg[i], "-c"))
+		&& arg[i] != '\0'))
 		i++;
 	j = i;
 	while (arg[i] != '\0')
 	{
 		if (ft_str_is_numeric(arg[i]) == 0)
-		{
-			write(1, "Error\n", 6);
-			exit(1);
-		}
+			ft_error(1);
 		i++;
 	}
 	while (arg[j] != '\0')
 	{
-		if (ft_atoi(arg[j]) > MAX || ft_atoi(arg[j]) < MIN)   //will atoi work with converting a number bigger than MAX & MIN.
-		{
-			write(1, "Error\n", 6);
-			exit(1);
-		}
+		if (ft_atoi(arg[j]) > MAX || ft_atoi(arg[j]) < MIN)
+			ft_error(1);
 		j++;
 	}
 	duplicate_check(arg);

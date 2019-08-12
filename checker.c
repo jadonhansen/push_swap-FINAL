@@ -6,7 +6,7 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/01 15:29:22 by jhansen           #+#    #+#             */
-/*   Updated: 2019/08/08 13:05:11 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/08/12 17:37:12 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,20 +19,12 @@ void	start_process(t_stack **stacka, t_stack **stackb, int flag)
 
 	count = 0;
 	if (flag == 1 || flag == 3)
-	{
-		print_stack(stacka, 'A');
-		print_stack(stackb, 'B');
-		ft_putstr("\n\n");
-	}
+		print_stack(stacka, stackb, 'A', 'B');
 	while ((get_next_line(0, &command)))
 	{
 		do_op(flag, command, stacka, stackb);
 		if (flag == 1 || flag == 3)
-		{
-			print_stack(stacka, 'A');
-			print_stack(stackb, 'B');
-			ft_putstr("\n\n");
-		}
+			print_stack(stacka, stackb, 'A', 'B');
 		if (flag == 2 || flag == 3)
 			count++;
 	}
@@ -44,11 +36,21 @@ void	start_process(t_stack **stacka, t_stack **stackb, int flag)
 	}
 }
 
+t_stack	*stringstuff(char **argv)
+{
+	t_stack	*stack;
+	char	**array;
+
+	array = fill_from_string(&argv[1]);
+	check_errors(array);
+	stack = stack_fill(array);
+	return (stack);
+}
+
 int		main(int argc, char **argv)
 {
 	t_stack	*stacka;
 	t_stack	*stackb;
-	char	**array;
 	int		flag;
 
 	flag = 0;
@@ -58,11 +60,7 @@ int		main(int argc, char **argv)
 	{
 		flag = flag_check(argv);
 		if (string_input(&argv[1]))
-		{
-			array = fill_from_string(&argv[1]);
-			check_errors(array);
-			stacka = stack_fill(array);
-		}
+			stacka = stringstuff(argv);
 		else
 		{
 			check_errors(&argv[1]);

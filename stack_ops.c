@@ -6,17 +6,19 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/12 15:55:08 by jhansen           #+#    #+#             */
-/*   Updated: 2019/08/07 16:28:29 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/08/12 18:20:45 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	print_stack(t_stack **stack, char c)
+void	print_stack(t_stack **stacka, t_stack **stackb, char c, char b)
 {
 	t_stack *node;
+	t_stack	*node_two;
 
-	node = *stack;
+	node = *stacka;
+	node_two = *stackb;
 	if (node)
 	{
 		printf("---- Stack %c ----\n", c);
@@ -29,6 +31,20 @@ void	print_stack(t_stack **stack, char c)
 			node = node->next;
 		}
 		printf("-----------------\n");
+	}
+	if (node_two)
+	{
+		printf("---- Stack %c ----\n", b);
+		while (node_two)
+		{
+			ft_putnbr(node_two->num);
+			ft_putchar('\t');
+			ft_putnbr(node_two->normed);
+			ft_putendl("");
+			node_two = node_two->next;
+		}
+		printf("-----------------\n");
+		ft_putstr("\n\n");
 	}
 }
 

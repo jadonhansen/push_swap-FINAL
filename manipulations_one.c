@@ -6,7 +6,7 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/11 15:37:41 by jhansen           #+#    #+#             */
-/*   Updated: 2019/08/06 12:55:19 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/08/12 17:46:39 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ void	ft_sa(t_stack **stacka, int i)
 		return ;
 	first = (*stacka);
 	second = (*stacka)->next;
-
 	first->prev = second;
 	first->next = second->next;
 	second->prev = NULL;
