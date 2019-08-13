@@ -6,7 +6,7 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/13 10:49:57 by jhansen           #+#    #+#             */
-/*   Updated: 2019/08/13 10:50:05 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/08/13 17:15:45 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,4 +50,22 @@ int		stack_size(t_stack **head)
 		stack = stack->next;
 	}
 	return (i);
+}
+
+void	validate(int flag, t_stack **a, t_stack **b)
+{
+	if (flag == 3 || flag == 5 || flag == 6 || flag == 7)
+	{
+		if (stack_check(a, b) > 0)
+			ft_putstr_colour(RED, "KO\n");
+		else
+			ft_putstr_colour(GREEN, "OK\n");
+	}
+	else
+	{
+		if (stack_check(a, b) > 0)
+			ft_putstr("KO\n");
+		else
+			ft_putstr("OK\n");
+	}
 }

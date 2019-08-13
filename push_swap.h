@@ -6,7 +6,7 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/03 10:38:41 by jhansen           #+#    #+#             */
-/*   Updated: 2019/08/13 15:22:04 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/08/13 17:12:20 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void				ft_rrr(t_stack **stacka, t_stack **stackb, int i);
 void				print_space_before(int n);
 void				print_space_after(int n);
 void				print_content(t_stack **a, t_stack **b);
-void				viz(t_stack **a, t_stack **b);
+void				viz(int flag, t_stack **a, t_stack **b);
 
 /*
 **	stack_ops.c
@@ -71,6 +71,7 @@ void				check_errors(char **arg);
 void				duplicate_check(char **arg);
 void				do_op(int flag, char *command, t_stack **stacka,
 					t_stack **stackb);
+int					flag_value(int v, int c, int r);
 int					flag_check(char **arr);
 int					string_input(char **str);
 char				**fill_from_string(char **arg);
@@ -80,6 +81,7 @@ char				**fill_from_string(char **arg);
 */
 
 void				ft_error(int i);
+void				validate(int flag, t_stack **a, t_stack **b);
 int					stack_check(t_stack **stacka, t_stack **t_stackb);
 int					stack_size(t_stack **head);
 

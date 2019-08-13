@@ -6,7 +6,7 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/12 15:55:08 by jhansen           #+#    #+#             */
-/*   Updated: 2019/08/13 10:31:02 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/08/13 17:23:20 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ t_stack	*stack_fill(char **arg)
 	int		i;
 
 	i = 0;
-	while (ft_strequ(arg[i], "-v") || ft_strequ(arg[i], "-c"))
+	while ((ft_strequ(arg[i], "-v") || ft_strequ(arg[i], "-c")
+			|| ft_strequ(arg[i], "-r")))
 		i++;
 	stack = create_node(ft_atoi(arg[i]));
 	while (arg[++i] != '\0')

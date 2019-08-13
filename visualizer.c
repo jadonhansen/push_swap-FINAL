@@ -6,7 +6,7 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/13 10:27:07 by jhansen           #+#    #+#             */
-/*   Updated: 2019/08/13 15:09:36 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/08/13 18:20:06 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,14 +99,23 @@ void	print_content(t_stack **a, t_stack **b)
 	}
 }
 
-void	viz(t_stack **a, t_stack **b)
+void	viz(int flag, t_stack **a, t_stack **b)
 {
 	int	i;
 
 	i = 0;
 	while (i++ < 31)
 		ft_putchar('-');
-	ft_putstr("\n|   STACK A    |   STACK B    |\n");
+	if (flag == 3 || flag == 5 || flag == 6 || flag == 7)
+	{
+		ft_putstr("\n|   ");
+		ft_putstr_colour(YELLOW, "STACK A");
+		ft_putstr("    |   ");
+		ft_putstr_colour(CYAN, "STACK B");
+		ft_putstr("    |\n");
+	}
+	else
+		ft_putstr("\n|   STACK A    |   STACK B    |\n");
 	i = 0;
 	while (i++ < 31)
 		ft_putchar('-');

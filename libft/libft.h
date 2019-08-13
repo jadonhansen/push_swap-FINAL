@@ -6,7 +6,7 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/04 15:09:10 by jhansen           #+#    #+#             */
-/*   Updated: 2019/08/13 16:10:22 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/08/13 16:25:58 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,5 +130,6 @@ char				*ft_strndup(const char *s1, size_t n);
 
 int					ft_str_is_numeric(const char *str);
 int					ft_intlen(int n);
+void				ft_putstr_colour(char *colour, char *s);
 
 #endif

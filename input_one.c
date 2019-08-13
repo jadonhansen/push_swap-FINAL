@@ -6,7 +6,7 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/11 12:44:55 by jhansen           #+#    #+#             */
-/*   Updated: 2019/08/12 17:58:59 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/08/13 17:44:33 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,8 @@ void	duplicate_check(char **arg)
 
 	i = 0;
 	k = 0;
-	while (((ft_strequ(arg[i], "-v") || ft_strequ(arg[i], "-c"))
-		&& arg[i] != '\0'))
+	while (((ft_strequ(arg[i], "-v") || ft_strequ(arg[i], "-c")
+		|| ft_strequ(arg[i], "-r")) && arg[i] != '\0'))
 		i++;
 	while (arg[i] != '\0')
 	{
@@ -63,8 +63,8 @@ void	check_errors(char **arg)
 	int		j;
 
 	i = 0;
-	while (((ft_strequ(arg[i], "-v") || ft_strequ(arg[i], "-c"))
-		&& arg[i] != '\0'))
+	while (((ft_strequ(arg[i], "-v") || ft_strequ(arg[i], "-c")
+		|| ft_strequ(arg[i], "-r")) && arg[i] != '\0'))
 		i++;
 	j = i;
 	while (arg[i] != '\0')

@@ -6,7 +6,7 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/11 15:38:00 by jhansen           #+#    #+#             */
-/*   Updated: 2019/08/06 12:56:00 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/08/13 17:22:24 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	ft_ra(t_stack **stacka, int i)
 	first->next = NULL;
 	last->next = first;
 	first->prev = last;
-	if (i == 1 || i == 3)
+	if (i == 1 || i == 4 || i == 5 || i == 7)
 		write(1, "ra\n", 3);
 }
 
@@ -46,7 +46,7 @@ void	ft_rb(t_stack **stackb, int i)
 	first->next = NULL;
 	last->next = first;
 	first->prev = last;
-	if (i == 1 || i == 3)
+	if (i == 1 || i == 4 || i == 5 || i == 7)
 		write(1, "rb\n", 3);
 }
 
@@ -54,7 +54,7 @@ void	ft_rr(t_stack **stacka, t_stack **stackb, int i)
 {
 	ft_ra(stacka, 0);
 	ft_rb(stackb, 0);
-	if (i == 1 || i == 3)
+	if (i == 1 || i == 4 || i == 5 || i == 7)
 		write(1, "rr\n", 3);
 }
 
@@ -76,7 +76,7 @@ void	ft_rra(t_stack **stacka, int i)
 	last->prev = NULL;
 	last->next = *stacka;
 	*stacka = last;
-	if (i == 1 || i == 3)
+	if (i == 1 || i == 4 || i == 5 || i == 7)
 		write(1, "rra\n", 4);
 }
 
@@ -98,6 +98,6 @@ void	ft_rrb(t_stack **stackb, int i)
 	last->prev = NULL;
 	last->next = *stackb;
 	*stackb = last;
-	if (i == 1 || i == 3)
+	if (i == 1 || i == 4 || i == 5 || i == 7)
 		write(1, "rrb\n", 4);
 }

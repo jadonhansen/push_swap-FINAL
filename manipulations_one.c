@@ -6,7 +6,7 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/11 15:37:41 by jhansen           #+#    #+#             */
-/*   Updated: 2019/08/12 17:46:39 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/08/13 17:21:46 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	ft_sa(t_stack **stacka, int i)
 	second->prev = NULL;
 	second->next = first;
 	*stacka = second;
-	if (i == 1 || i == 3)
+	if (i == 1 || i == 4 || i == 5 || i == 7)
 		write(1, "sa\n", 3);
 }
 
@@ -44,7 +44,7 @@ void	ft_sb(t_stack **stackb, int i)
 	second->prev = NULL;
 	second->next = first;
 	*stackb = second;
-	if (i == 1 || i == 3)
+	if (i == 1 || i == 4 || i == 5 || i == 7)
 		write(1, "sb\n", 3);
 }
 
@@ -55,7 +55,7 @@ void	ft_ss(t_stack **stacka, t_stack **stackb, int i)
 		ft_sa(stacka, 0);
 		ft_sb(stackb, 0);
 	}
-	if (i == 1 || i == 3)
+	if (i == 1 || i == 4 || i == 5 || i == 7)
 		write(1, "ss\n", 3);
 }
 
@@ -79,7 +79,7 @@ void	ft_pa(t_stack **stacka, t_stack **stackb, int i)
 		else if (stacka != NULL)
 			add_head_node(stacka, temp);
 	}
-	if (i == 1 || i == 3)
+	if (i == 1 || i == 4 || i == 5 || i == 7)
 		write(1, "pa\n", 3);
 }
 
@@ -103,6 +103,6 @@ void	ft_pb(t_stack **stacka, t_stack **stackb, int i)
 		else if (stackb != NULL)
 			add_head_node(stackb, temp);
 	}
-	if (i == 1 || i == 3)
+	if (i == 1 || i == 4 || i == 5 || i == 7)
 		write(1, "pb\n", 3);
 }

@@ -6,7 +6,7 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/01 15:29:22 by jhansen           #+#    #+#             */
-/*   Updated: 2019/08/13 11:21:47 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/08/13 17:19:16 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,17 +18,17 @@ void	start_process(t_stack **stacka, t_stack **stackb, int flag)
 	int		count;
 
 	count = 0;
-	if (flag == 1 || flag == 3)
-		viz(stacka, stackb);
+	if (flag == 1 || flag == 4 || flag == 5 || flag == 7)
+		viz(flag, stacka, stackb);
 	while ((get_next_line(0, &command)))
 	{
 		do_op(flag, command, stacka, stackb);
-		if (flag == 1 || flag == 3)
-			viz(stacka, stackb);
-		if (flag == 2 || flag == 3)
+		if (flag == 1 || flag == 4 || flag == 5 || flag == 7)
+			viz(flag, stacka, stackb);
+		if (flag == 2 || flag == 4 || flag == 6 || flag == 7)
 			count++;
 	}
-	if (flag == 2 || flag == 3)
+	if (flag == 2 || flag == 4 || flag == 6 || flag == 7)
 	{
 		ft_putstr("COMMAND COUNT: ");
 		ft_putnbr(count);
@@ -69,9 +69,6 @@ int		main(int argc, char **argv)
 		normalize(&stacka);
 		start_process(&stacka, &stackb, flag);
 	}
-	if (stack_check(&stacka, &stackb) > 0)
-		ft_putstr("KO\n");
-	else
-		ft_putstr("OK\n");
+	validate(flag, &stacka, &stackb);
 	return (0);
 }
