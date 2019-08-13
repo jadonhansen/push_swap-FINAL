@@ -6,7 +6,7 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/03 10:38:41 by jhansen           #+#    #+#             */
-/*   Updated: 2019/08/13 12:32:58 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/08/13 15:09:51 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,8 @@ void				ft_rrr(t_stack **stacka, t_stack **stackb, int i);
 **	visualizer.c
 */
 
-void				print_top(int i);
+void				print_space_before(int n);
+void				print_space_after(int n);
 void				print_content(t_stack **a, t_stack **b);
 void				viz(t_stack **a, t_stack **b);
 

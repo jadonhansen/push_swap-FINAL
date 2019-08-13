@@ -6,27 +6,68 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/13 10:27:07 by jhansen           #+#    #+#             */
-/*   Updated: 2019/08/13 12:40:53 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/08/13 15:09:36 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	print_top(int i)
+void	print_space_before(int num)
 {
-	i = 0;
-	while (i++ < 26)
-		ft_putchar('-');
-	ft_putstr("\n|  ");
-	ft_putstr("STACK A");
-	ft_putstr("   ");
-	ft_putchar('|');
-	ft_putstr("   ");
-	ft_putstr("STACK B |\n");
-	i = 0;
-	while (i++ < 26)
-		ft_putchar('-');
-	ft_putchar('\n');
+	int	n;
+
+	n = ft_intlen(num);
+	if (n == 1)
+		ft_putstr("            |  ");
+	else if (n == 2)
+		ft_putstr("           |  ");
+	else if (n == 3)
+		ft_putstr("          |  ");
+	else if (n == 4)
+		ft_putstr("         |  ");
+	else if (n == 5)
+		ft_putstr("        |  ");
+	else if (n == 6)
+		ft_putstr("       |  ");
+	else if (n == 7)
+		ft_putstr("      |  ");
+	else if (n == 8)
+		ft_putstr("     |  ");
+	else if (n == 9)
+		ft_putstr("    |  ");
+	else if (n == 10)
+		ft_putstr("   |  ");
+	else if (n == 11)
+		ft_putstr("  |  ");
+}
+
+void	print_space_after(int num)
+{
+	int	n;
+
+	n = ft_intlen(num);
+	if (n == 1)
+		ft_putstr("           |\n");
+	else if (n == 2)
+		ft_putstr("          |\n");
+	else if (n == 3)
+		ft_putstr("         |\n");
+	else if (n == 4)
+		ft_putstr("        |\n");
+	else if (n == 5)
+		ft_putstr("       |\n");
+	else if (n == 6)
+		ft_putstr("      |\n");
+	else if (n == 7)
+		ft_putstr("     |\n");
+	else if (n == 8)
+		ft_putstr("    |\n");
+	else if (n == 9)
+		ft_putstr("   |\n");
+	else if (n == 10)
+		ft_putstr("  |\n");
+	else if (n == 11)
+		ft_putstr(" |\n");
 }
 
 void	print_content(t_stack **a, t_stack **b)
@@ -38,37 +79,41 @@ void	print_content(t_stack **a, t_stack **b)
 	two = *b;
 	while (one || two)
 	{
-		ft_putstr("|  ");
+		ft_putstr("| ");
 		if (one)
 		{
 			ft_putnbr(one->num);
+			print_space_before(one->num);
 			one = one->next;
 		}
 		else
-			ft_putchar(' ');
-		ft_putstr("         |   ");
+			ft_putstr("             |  ");
 		if (two)
 		{
 			ft_putnbr(two->num);
+			print_space_after(two->num);
 			two = two->next;
-			ft_putstr("       |\n");
 		}
 		else
-			ft_putstr("        |\n");
+			ft_putstr("            |\n");
 	}
-}
-
-void	print_bottom(int i)
-{
-	i = 0;
-	while (i++ < 26)
-		ft_putchar('-');
-	ft_putstr("\n\n");
 }
 
 void	viz(t_stack **a, t_stack **b)
 {
-	print_top(1);
+	int	i;
+
+	i = 0;
+	while (i++ < 31)
+		ft_putchar('-');
+	ft_putstr("\n|   STACK A    |   STACK B    |\n");
+	i = 0;
+	while (i++ < 31)
+		ft_putchar('-');
+	ft_putchar('\n');
 	print_content(a, b);
-	print_bottom(1);
+	i = 0;
+	while (i++ < 31)
+		ft_putchar('-');
+	ft_putstr("\n\n");
 }
