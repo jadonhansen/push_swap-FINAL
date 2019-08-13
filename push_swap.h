@@ -6,7 +6,7 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/03 10:38:41 by jhansen           #+#    #+#             */
-/*   Updated: 2019/08/12 18:06:35 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/08/13 12:32:58 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,10 +46,17 @@ void				ft_rra(t_stack **stacka, int i);
 void				ft_rrr(t_stack **stacka, t_stack **stackb, int i);
 
 /*
+**	visualizer.c
+*/
+
+void				print_top(int i);
+void				print_content(t_stack **a, t_stack **b);
+void				viz(t_stack **a, t_stack **b);
+
+/*
 **	stack_ops.c
 */
 
-void				print_stack(t_stack **stacka, t_stack **stackb, char c, char b);
 t_stack				*stack_fill(char **arg);
 t_stack				*create_node(int num);
 void				add_tail_node(t_stack **stack, t_stack *node);
@@ -68,7 +75,7 @@ int					string_input(char **str);
 char				**fill_from_string(char **arg);
 
 /*
-**	output_check.c
+**	validate.c
 */
 
 void				ft_error(int i);
@@ -106,7 +113,6 @@ int					compare_smallest_pos(t_stack **b, int chunk);
 ** push_swap.c
 */
 
-void				allocate_algo(t_stack **stacka, t_stack **stackb);
 void				klein(t_stack **a);
 void				tiny(t_stack **a);
 void				small(t_stack **a, t_stack **b);

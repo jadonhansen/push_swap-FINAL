@@ -3,11 +3,11 @@ NAME2 = push_swap
 LIB = libft
 FLAGS = -Wall -Werror -Wextra
 CH_SRC = checker.c input_one.c manipulations_one.c manipulations_two.c
-CH_SRC += manipulations_three.c output_check.c stack_ops.c
+CH_SRC += manipulations_three.c validate.c stack_ops.c visualizer.c
 CH_SRC += ./get_next_line/get_next_line.c input_two.c
 PS_SRC = push_swap.c sorting_algo_one.c manipulations_one.c manipulations_two.c
-PS_SRC += manipulations_three.c input_one.c stack_ops.c output_check.c
-PS_SRC += sorting_algo_two.c stack_ops_algo.c input_two.c
+PS_SRC += manipulations_three.c input_one.c stack_ops.c validate.c
+PS_SRC += sorting_algo_two.c stack_ops_algo.c input_two.c visualizer.c
 
 all: $(LIB) $(NAME1) $(NAME2)
 
