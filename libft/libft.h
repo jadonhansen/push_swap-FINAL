@@ -6,13 +6,20 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/04 15:09:10 by jhansen           #+#    #+#             */
-/*   Updated: 2019/08/13 13:54:36 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/08/13 16:10:22 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 # define INTMIN -2147483648
+# define RESET "\033[00m"
+# define GREEN "\033[32m"
+# define BLUE "\033[34m"
+# define WHITE "\033[37m"
+# define RED "\033[31m"
+# define YELLOW "\033[33m"
+# define CYAN "\033[36m"
 
 # include <string.h>
 # include <stdlib.h>

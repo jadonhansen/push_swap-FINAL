@@ -1,33 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_intlen.c                                        :+:      :+:    :+:   */
+/*   ft_putstr_colour.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/08/13 13:51:44 by jhansen           #+#    #+#             */
-/*   Updated: 2019/08/13 16:14:19 by jhansen          ###   ########.fr       */
+/*   Created: 2019/08/13 16:04:55 by jhansen           #+#    #+#             */
+/*   Updated: 2019/08/13 16:12:31 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_intlen(int n)
+void	ft_putstr_colour(char *colour, char *str)
 {
-	int	i;
-
-	i = 0;
-	if (n < 0)
-	{
-		i++;
-		n = n * -1;
-	}
-	while (n >= 10)
-	{
-		n = n / 10;
-		i++;
-	}
-	if (n >= 0)
-		i++;
-	return (i);
+	ft_putstr(colour);
+	ft_putstr(str);
+	ft_putstr(RESET);
 }
