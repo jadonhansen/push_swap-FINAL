@@ -6,7 +6,7 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/11 12:44:55 by jhansen           #+#    #+#             */
-/*   Updated: 2019/08/15 11:47:20 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/08/15 13:09:04 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,5 +107,5 @@ void	do_op(int flag, char *command, t_stack **stacka, t_stack **stackb)
 	else if (ft_strequ(command, "rrr"))
 		ft_rrr(stacka, stackb, flag);
 	else
-		ft_putstr("Wrong input commmand. Try again!\n");
+		ft_error(flag);
 }

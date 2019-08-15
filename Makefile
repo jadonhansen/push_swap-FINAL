@@ -11,21 +11,31 @@ PS_SRC += sorting_algo_two.c algo_ops_one.c algo_ops_two.c input_two.c visualize
 
 all: $(LIB) $(NAME1) $(NAME2)
 
-$(LIB):
-	make -C ./libft re
-	make -C ./libft clean
+$(LIB): relib cleanlib
+	@echo "[Libft] Compiled"
 
 $(NAME1):
-	gcc -o $(NAME1) $(FLAGS) $(CH_SRC) -lft -L./libft -I.
+	@gcc -o $(NAME1) $(FLAGS) $(CH_SRC) -lft -L./libft -I.
+	@echo "[$(NAME1)] Compiled"
 
 $(NAME2):
-	gcc -o $(NAME2) $(FLAGS) $(PS_SRC) -lft -L./libft -I.
+	@gcc -o $(NAME2) $(FLAGS) $(PS_SRC) -lft -L./libft -I.
+	@echo "[$(NAME2)] Compiled"
 
 clean:
-	rm -rf *.o
+	@/bin/rm -f *.o
+	@echo "Cleaned Objects"
 
 fclean: clean
-	rm -rf $(NAME1)
-	rm -rf $(NAME2)
+	@/bin/rm -f $(NAME1)
+	@/bin/rm -f $(NAME2)
+	@/bin/rm -f ./libft/libft.a
+	@echo "Cleaned All"
 
 re: fclean all
+
+relib:
+	@make -C ./libft re
+
+cleanlib:
+	@make -C ./libft clean

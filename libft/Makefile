@@ -7,14 +7,14 @@ OPTIONS = -c -I.
 all: $(NAME)
 
 $(NAME): 
-	gcc $(FLAGS) $(SRC) $(OPTIONS)
-	ar rc $(NAME) $(OBJECTS)
-	ranlib $(NAME)
+	@gcc $(FLAGS) $(SRC) $(OPTIONS)
+	@ar rc $(NAME) $(OBJECTS)
+	@ranlib $(NAME)
 
 clean: 
-	/bin/rm -f $(OBJECTS)
+	@/bin/rm -f $(OBJECTS)
 
 fclean: clean
-	/bin/rm -f $(NAME)
+	@/bin/rm -f $(NAME)
 
 re: fclean all
