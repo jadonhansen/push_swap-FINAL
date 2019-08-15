@@ -6,7 +6,7 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/03 10:38:41 by jhansen           #+#    #+#             */
-/*   Updated: 2019/08/13 17:12:20 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/08/15 11:49:29 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,8 +67,8 @@ void				add_head_node(t_stack **stack, t_stack *node);
 */
 
 void				normalize(t_stack **stacka);
-void				check_errors(char **arg);
-void				duplicate_check(char **arg);
+void				check_errors(char **arg, int flag);
+void				duplicate_check(char **arg, int flag);
 void				do_op(int flag, char *command, t_stack **stacka,
 					t_stack **stackb);
 int					flag_value(int v, int c, int r);
@@ -102,7 +102,7 @@ void				sort_twofifty(t_stack **a, t_stack **b);
 void				sort_fivehundred(t_stack **a, t_stack **b);
 
 /*
-** stack_ops_algo.c
+** algo_ops_one.c && algo_ops_two.c
 */
 
 int					smallest_pos(t_stack **head);
@@ -110,6 +110,7 @@ int					biggest_pos(t_stack **head);
 void				ra_rra_pos(t_stack **a, int pos);
 void				rb_rrb_pos(t_stack **b, int pos);
 void				pushback_all(t_stack **a, t_stack **b);
+int					begin_pos(t_stack **node, int chunk);
 int					compare_smallest_pos(t_stack **b, int chunk);
 
 /*

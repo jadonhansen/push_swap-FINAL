@@ -6,7 +6,7 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/06 12:16:53 by jhansen           #+#    #+#             */
-/*   Updated: 2019/08/13 17:49:54 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/08/15 12:27:15 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,15 +69,20 @@ int		string_input(char **str)
 	while (((ft_strequ(str[i], "-v") || ft_strequ(str[i], "-c")
 		|| ft_strequ(str[i], "-r")) && str[i] != '\0'))
 		i++;
-	while (str[i][j] != '\0')
+	if (str[i])
 	{
-		if (str[i][j] == ' ')
+		while (str[i][j] != '\0')
 		{
-			check = 1;
-			break ;
+			if (str[i][j] == ' ')
+			{
+				check = 1;
+				break ;
+			}
+			j++;
 		}
-		j++;
 	}
+	else
+		exit(1);
 	return (check);
 }
 

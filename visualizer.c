@@ -6,7 +6,7 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/13 10:27:07 by jhansen           #+#    #+#             */
-/*   Updated: 2019/08/13 18:20:06 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/08/15 10:51:40 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,9 +109,9 @@ void	viz(int flag, t_stack **a, t_stack **b)
 	if (flag == 3 || flag == 5 || flag == 6 || flag == 7)
 	{
 		ft_putstr("\n|   ");
-		ft_putstr_colour(YELLOW, "STACK A");
+		ft_putstr_colour(CYAN, "STACK A");
 		ft_putstr("    |   ");
-		ft_putstr_colour(CYAN, "STACK B");
+		ft_putstr_colour(YELLOW, "STACK B");
 		ft_putstr("    |\n");
 	}
 	else

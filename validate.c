@@ -6,15 +6,20 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/13 10:49:57 by jhansen           #+#    #+#             */
-/*   Updated: 2019/08/13 17:15:45 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/08/15 11:48:49 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_error(int i)
+void	ft_error(int flag)
 {
-	if (i == 1)
+	if (flag == 3 || flag == 5 || flag == 6 || flag == 7)
+	{
+		ft_putstr_colour(RED, "Error\n");
+		exit(1);
+	}
+	else
 	{
 		write(1, "Error\n", 6);
 		exit(1);

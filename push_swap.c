@@ -6,7 +6,7 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/01 15:29:34 by jhansen           #+#    #+#             */
-/*   Updated: 2019/08/12 17:45:48 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/08/15 11:52:30 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,12 +111,12 @@ int		main(int argc, char **argv)
 		if (string_input(&argv[1]))
 		{
 			array = fill_from_string(&argv[1]);
-			check_errors(array);
+			check_errors(array, 0);
 			stacka = stack_fill(array);
 		}
 		else
 		{
-			check_errors(&argv[1]);
+			check_errors(&argv[1], 0);
 			stacka = stack_fill(&argv[1]);
 		}
 		if (stack_check(&stacka, &stackb) == 0)

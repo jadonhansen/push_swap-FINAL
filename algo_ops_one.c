@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_ops_algo.c                                   :+:      :+:    :+:   */
+/*   algo_ops_one.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/05 11:02:23 by jhansen           #+#    #+#             */
-/*   Updated: 2019/08/13 12:34:49 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/08/15 10:58:01 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,48 +106,6 @@ void	rb_rrb_pos(t_stack **b, int pos)
 			pos--;
 		}
 	}
-}
-
-int		compare_smallest_pos(t_stack **b, int chunk)
-{
-	t_stack	*begin;
-	t_stack	*end;
-	int		pos_begin;
-	int		pos_end;
-	int		i;
-	int		j;
-
-	i = 0;
-	pos_begin = 0;
-	pos_end = 0;
-	j = stack_size(b);
-	begin = *b;
-	end = *b;
-	while (end->next)
-		end = end->next;
-	while (begin)
-	{
-		if (begin->normed <= chunk)
-		{
-			pos_begin = i;
-			break ;
-		}
-		begin = begin->next;
-		i++;
-	}
-	while (end)
-	{
-		if (end->normed <= chunk)
-		{
-			pos_end = j - 1;
-			break ;
-		}
-		end = end->prev;
-		j--;
-	}
-	if (pos_begin <= (stack_size(b) - pos_end))
-		return (pos_begin);
-	return (pos_end);
 }
 
 void	pushback_all(t_stack **a, t_stack **b)

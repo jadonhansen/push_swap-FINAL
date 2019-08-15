@@ -6,7 +6,7 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/01 15:29:22 by jhansen           #+#    #+#             */
-/*   Updated: 2019/08/13 17:19:16 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/08/15 12:13:53 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,13 +36,13 @@ void	start_process(t_stack **stacka, t_stack **stackb, int flag)
 	}
 }
 
-t_stack	*stringstuff(char **argv)
+t_stack	*stringstuff(char **argv, int flag)
 {
 	t_stack	*stack;
 	char	**array;
 
 	array = fill_from_string(&argv[1]);
-	check_errors(array);
+	check_errors(array, flag);
 	stack = stack_fill(array);
 	return (stack);
 }
@@ -60,10 +60,10 @@ int		main(int argc, char **argv)
 	{
 		flag = flag_check(argv);
 		if (string_input(&argv[1]))
-			stacka = stringstuff(argv);
+			stacka = stringstuff(argv, flag);
 		else
 		{
-			check_errors(&argv[1]);
+			check_errors(&argv[1], flag);
 			stacka = stack_fill(&argv[1]);
 		}
 		normalize(&stacka);

@@ -6,7 +6,7 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/11 12:44:55 by jhansen           #+#    #+#             */
-/*   Updated: 2019/08/13 17:44:33 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/08/15 11:47:20 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	normalize(t_stack **stacka)
 	}
 }
 
-void	duplicate_check(char **arg)
+void	duplicate_check(char **arg, int flag)
 {
 	int	i;
 	int	k;
@@ -50,14 +50,14 @@ void	duplicate_check(char **arg)
 		while (arg[k] != '\0')
 		{
 			if (ft_atoi(arg[i]) == ft_atoi(arg[k]))
-				ft_error(1);
+				ft_error(flag);
 			k++;
 		}
 		i++;
 	}
 }
 
-void	check_errors(char **arg)
+void	check_errors(char **arg, int flag)
 {
 	int		i;
 	int		j;
@@ -70,16 +70,16 @@ void	check_errors(char **arg)
 	while (arg[i] != '\0')
 	{
 		if (ft_str_is_numeric(arg[i]) == 0)
-			ft_error(1);
+			ft_error(flag);
 		i++;
 	}
 	while (arg[j] != '\0')
 	{
-		if (ft_atoi(arg[j]) > MAX || ft_atoi(arg[j]) < MIN)
-			ft_error(1);
+		if (ft_atol(arg[j]) > MAX || ft_atol(arg[j]) < MIN)
+			ft_error(flag);
 		j++;
 	}
-	duplicate_check(arg);
+	duplicate_check(arg, flag);
 }
 
 void	do_op(int flag, char *command, t_stack **stacka, t_stack **stackb)

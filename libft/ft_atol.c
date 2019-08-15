@@ -1,37 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sorting_algo_two.c                                 :+:      :+:    :+:   */
+/*   ft_atol.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/25 16:08:44 by jhansen           #+#    #+#             */
-/*   Updated: 2019/08/15 11:58:03 by jhansen          ###   ########.fr       */
+/*   Created: 2019/08/15 11:38:22 by jhansen           #+#    #+#             */
+/*   Updated: 2019/08/15 12:28:56 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	sort_plus(t_stack **a, t_stack **b)
+long	ft_atol(char *s)
 {
-	int		chunk;
-	int		pos;
-	int		i;
+	long i;
+	long neg;
+	long res;
 
-	chunk = 0;
-	i = 1;
-	while (*a)
+	i = 0;
+	neg = 1;
+	res = 0;
+	while ((s[i] == '\n' || s[i] == '\t' || s[i] == '\r'
+			|| s[i] == '\f' || s[i] == '\v' || s[i] == ' '))
+		i++;
+	if (s[i] == '-' || s[i] == '+')
 	{
-		chunk = chunk + 45;
-		while (i <= chunk)
-		{
-			if (!(*a))
-				break ;
-			pos = compare_smallest_pos(a, chunk);
-			ra_rra_pos(a, pos);
-			ft_pb(a, b, 1);
-			i++;
-		}
+		if (s[i] == '-')
+			neg = -1;
+		i++;
 	}
-	pushback_all(a, b);
+	while (s[i] <= '9' && s[i] >= '0')
+	{
+		res = res * 10 + (s[i] - '0');
+		i++;
+	}
+	return (res * neg);
 }
