@@ -6,7 +6,7 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/01 15:29:34 by jhansen           #+#    #+#             */
-/*   Updated: 2019/08/15 11:52:30 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/08/15 13:58:28 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,6 +113,7 @@ int		main(int argc, char **argv)
 			array = fill_from_string(&argv[1]);
 			check_errors(array, 0);
 			stacka = stack_fill(array);
+			ft_array_free(array); //this adds the 26th line
 		}
 		else
 		{
