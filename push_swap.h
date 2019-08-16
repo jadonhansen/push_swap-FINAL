@@ -6,7 +6,7 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/03 10:38:41 by jhansen           #+#    #+#             */
-/*   Updated: 2019/08/15 13:37:27 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/08/16 12:48:51 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,7 @@ void				do_op(int flag, char *command, t_stack **stacka,
 int					flag_value(int v, int c, int r);
 int					flag_check(char **arr);
 int					string_input(char **str);
+void				check_for_content(char *s);
 char				**fill_from_string(char **arg);
 
 /*
@@ -86,13 +87,15 @@ int					stack_check(t_stack **stacka, t_stack **t_stackb);
 int					stack_size(t_stack **head);
 
 /*
-** sorting_algo_two.c
+** sorting_algo_one.c
 */
 
-void				sort_plus(t_stack **a, t_stack **b);
+void				klein(t_stack **a);
+void				tiny(t_stack **a);
+void				small(t_stack **a, t_stack **b);
 
 /*
-** sorting_algo_one.c
+** sorting_algo_two.c
 */
 
 void				sort_twenty(t_stack **a, t_stack **b);
@@ -100,6 +103,12 @@ void				sort_fifty(t_stack **a, t_stack **b);
 void				sort_hundred(t_stack **a, t_stack **b);
 void				sort_twofifty(t_stack **a, t_stack **b);
 void				sort_fivehundred(t_stack **a, t_stack **b);
+
+/*
+** sorting_algo_three.c
+*/
+
+void				sort_plus(t_stack **a, t_stack **b);
 
 /*
 ** algo_ops_one.c && algo_ops_two.c
@@ -112,13 +121,5 @@ void				rb_rrb_pos(t_stack **b, int pos);
 void				pushback_all(t_stack **a, t_stack **b);
 int					begin_pos(t_stack **node, int chunk);
 int					compare_smallest_pos(t_stack **b, int chunk);
-
-/*
-** push_swap.c
-*/
-
-void				klein(t_stack **a);
-void				tiny(t_stack **a);
-void				small(t_stack **a, t_stack **b);
 
 #endif

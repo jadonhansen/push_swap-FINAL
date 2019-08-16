@@ -6,7 +6,7 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/06 12:16:53 by jhansen           #+#    #+#             */
-/*   Updated: 2019/08/15 12:27:15 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/08/16 12:47:53 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,20 @@ int		string_input(char **str)
 	return (check);
 }
 
+void	check_for_content(char *s)
+{
+	int	i;
+
+	i = 0;
+	while (s[i] != '\0')
+	{
+		if (s[i] >= '0' && s[i] <= '9')
+			return ;
+		i++;
+	}
+	exit(1);
+}
+
 char	**fill_from_string(char **arg)
 {
 	int		i;
@@ -95,6 +109,7 @@ char	**fill_from_string(char **arg)
 	while (((ft_strequ(arg[i], "-v") || ft_strequ(arg[i], "-c")
 		|| ft_strequ(arg[i], "-r")) && arg[i] != '\0'))
 		i++;
+	check_for_content(arg[i]);
 	arr = ft_strsplit(arg[i], ' ');
 	return (arr);
 }

@@ -5,129 +5,70 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/08/12 15:11:38 by jhansen           #+#    #+#             */
-/*   Updated: 2019/08/15 12:27:39 by jhansen          ###   ########.fr       */
+/*   Created: 2019/08/16 12:06:33 by jhansen           #+#    #+#             */
+/*   Updated: 2019/08/16 12:07:40 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sort_twenty(t_stack **a, t_stack **b)
+void	klein(t_stack **a)
 {
-	int		chunk;
-	int		pos;
-	int		i;
+	t_stack *temp;
 
-	chunk = 0;
-	i = 1;
-	while (*a)
-	{
-		chunk = chunk + 5;
-		while (i <= chunk)
-		{
-			if (!(*a))
-				break ;
-			pos = compare_smallest_pos(a, chunk);
-			ra_rra_pos(a, pos);
-			ft_pb(a, b, 1);
-			i++;
-		}
-	}
-	pushback_all(a, b);
+	temp = *a;
+	if (temp->num > temp->next->num)
+		ft_sa(a, 1);
 }
 
-void	sort_fifty(t_stack **a, t_stack **b)
+void	tiny(t_stack **a)
 {
-	int		chunk;
-	int		pos;
-	int		i;
+	int		one;
+	int		two;
+	int		three;
+	t_stack	*temp;
 
-	chunk = 0;
-	i = 1;
-	while (*a)
+	temp = *a;
+	one = temp->num;
+	two = temp->next->num;
+	three = temp->next->next->num;
+	if (one > two && two < three && three > one)
+		ft_sa(a, 1);
+	else if (one > two && two > three && three < one)
 	{
-		chunk = chunk + 13;
-		while (i <= chunk)
-		{
-			if (!(*a))
-				break ;
-			pos = compare_smallest_pos(a, chunk);
-			ra_rra_pos(a, pos);
-			ft_pb(a, b, 1);
-			i++;
-		}
+		ft_sa(a, 1);
+		ft_rra(a, 1);
 	}
-	pushback_all(a, b);
+	else if (one > two && two < three && three < one)
+		ft_ra(a, 1);
+	else if (one < two && two > three && three > one)
+	{
+		ft_sa(a, 1);
+		ft_ra(a, 1);
+	}
+	else if (one < two && two > three && three < one)
+		ft_rra(a, 1);
 }
 
-void	sort_hundred(t_stack **a, t_stack **b)
+void	small(t_stack **a, t_stack **b)
 {
-	int		chunk;
-	int		pos;
-	int		i;
+	int	size;
+	int	pos;
+	int	i;
 
-	chunk = 0;
-	i = 1;
-	while (*a)
+	i = 0;
+	size = stack_size(a);
+	while (i < (size - 3))
 	{
-		chunk = chunk + 17;
-		while (i <= chunk)
-		{
-			if (!(*a))
-				break ;
-			pos = compare_smallest_pos(a, chunk);
-			ra_rra_pos(a, pos);
-			ft_pb(a, b, 1);
-			i++;
-		}
+		pos = smallest_pos(a);
+		ra_rra_pos(a, pos);
+		ft_pb(a, b, 1);
+		i++;
 	}
-	pushback_all(a, b);
-}
-
-void	sort_twofifty(t_stack **a, t_stack **b)
-{
-	int		chunk;
-	int		pos;
-	int		i;
-
-	chunk = 0;
-	i = 1;
-	while (*a)
+	tiny(a);
+	while (i > 0)
 	{
-		chunk = chunk + 30;
-		while (i <= chunk)
-		{
-			if (!(*a))
-				break ;
-			pos = compare_smallest_pos(a, chunk);
-			ra_rra_pos(a, pos);
-			ft_pb(a, b, 1);
-			i++;
-		}
+		ft_pa(a, b, 1);
+		i--;
 	}
-	pushback_all(a, b);
-}
-
-void	sort_fivehundred(t_stack **a, t_stack **b)
-{
-	int		chunk;
-	int		pos;
-	int		i;
-
-	chunk = 0;
-	i = 1;
-	while (*a)
-	{
-		chunk = chunk + 44;
-		while (i <= chunk)
-		{
-			if (!(*a))
-				break ;
-			pos = compare_smallest_pos(a, chunk);
-			ra_rra_pos(a, pos);
-			ft_pb(a, b, 1);
-			i++;
-		}
-	}
-	pushback_all(a, b);
 }

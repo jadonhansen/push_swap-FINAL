@@ -6,7 +6,7 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/11 12:44:55 by jhansen           #+#    #+#             */
-/*   Updated: 2019/08/15 13:09:04 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/08/16 12:17:20 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ void	duplicate_check(char **arg, int flag)
 		}
 		i++;
 	}
+	flag = 0;
 }
 
 void	check_errors(char **arg, int flag)
@@ -80,6 +81,7 @@ void	check_errors(char **arg, int flag)
 		j++;
 	}
 	duplicate_check(arg, flag);
+	flag = 0;
 }
 
 void	do_op(int flag, char *command, t_stack **stacka, t_stack **stackb)

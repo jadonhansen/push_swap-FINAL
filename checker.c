@@ -6,7 +6,7 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/01 15:29:22 by jhansen           #+#    #+#             */
-/*   Updated: 2019/08/15 13:53:16 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/08/16 12:48:02 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,40 +37,37 @@ void	start_process(t_stack **stacka, t_stack **stackb, int flag)
 	}
 }
 
-t_stack	*stringstuff(char **argv, int flag)
+void	execute(char **argv)
 {
-	t_stack	*stack;
+	t_stack	*stacka;
+	t_stack	*stackb;
 	char	**array;
+	int		flag;
 
-	array = fill_from_string(&argv[1]);
-	check_errors(array, flag);
-	stack = stack_fill(array);
-	//ft_array_free(array); gives random errors
-	return (stack);
+	array = NULL;
+	flag = flag_check(argv);
+	if (string_input(&argv[1]))
+	{
+		array = fill_from_string(&argv[1]);
+		check_errors(array, flag);
+		stacka = stack_fill(array);
+	}
+	else
+	{
+		check_errors(&argv[1], flag);
+		stacka = stack_fill(&argv[1]);
+	}
+	normalize(&stacka);
+	start_process(&stacka, &stackb, flag);
+	validate(flag, &stacka, &stackb);
+	ft_array_free(array);
 }
 
 int		main(int argc, char **argv)
 {
-	t_stack	*stacka;
-	t_stack	*stackb;
-	int		flag;
-
-	flag = 0;
 	if (argc < 2)
 		return (0);
 	else
-	{
-		flag = flag_check(argv);
-		if (string_input(&argv[1]))
-			stacka = stringstuff(argv, flag);
-		else
-		{
-			check_errors(&argv[1], flag);
-			stacka = stack_fill(&argv[1]);
-		}
-		normalize(&stacka);
-		start_process(&stacka, &stackb, flag);
-	}
-	validate(flag, &stacka, &stackb);
+		execute(argv);
 	return (0);
 }
