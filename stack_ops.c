@@ -6,11 +6,26 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/12 15:55:08 by jhansen           #+#    #+#             */
-/*   Updated: 2019/08/13 17:23:20 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/08/16 13:57:42 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	free_stack(t_stack **head)
+{
+	t_stack	*current;
+	t_stack	*next;
+
+	current = *head;
+	while (current != NULL)
+	{
+		next = current->next;
+		free(current);
+		current = next;
+	}
+	*head = NULL;
+}
 
 t_stack	*stack_fill(char **arg)
 {

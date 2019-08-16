@@ -6,7 +6,7 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/01 15:29:34 by jhansen           #+#    #+#             */
-/*   Updated: 2019/08/16 12:50:41 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/08/16 13:56:17 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,32 +37,37 @@ void	allocate_algo(t_stack **stacka, t_stack **stackb)
 		sort_plus(stacka, stackb);
 }
 
-int		main(int argc, char **argv)
+void	execute(char **argv)
 {
 	t_stack	*stacka;
 	t_stack *stackb;
 	char	**array;
 
+	if (string_input(&argv[1]))
+	{
+		array = fill_from_string(&argv[1]);
+		check_errors(array, 0);
+		stacka = stack_fill(array);
+		ft_array_free(array);
+	}
+	else
+	{
+		check_errors(&argv[1], 0);
+		stacka = stack_fill(&argv[1]);
+	}
+	if (stack_check(&stacka, &stackb) == 0)
+		exit(1);
+	normalize(&stacka);
+	allocate_algo(&stacka, &stackb);
+	free_stack(&stacka);
+	free_stack(&stackb);
+}
+
+int		main(int argc, char **argv)
+{
 	if (argc < 2)
 		return (0);
 	else
-	{
-		if (string_input(&argv[1]))
-		{
-			array = fill_from_string(&argv[1]);
-			check_errors(array, 0);
-			stacka = stack_fill(array);
-			//ft_array_free(array);
-		}
-		else
-		{
-			check_errors(&argv[1], 0);
-			stacka = stack_fill(&argv[1]);
-		}
-		if (stack_check(&stacka, &stackb) == 0)
-			return (0);
-		normalize(&stacka);
-		allocate_algo(&stacka, &stackb);
-	}
+		execute(argv);
 	return (0);
 }

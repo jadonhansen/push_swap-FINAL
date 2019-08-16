@@ -6,7 +6,7 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/03 10:38:41 by jhansen           #+#    #+#             */
-/*   Updated: 2019/08/16 12:48:51 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/08/16 13:54:28 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ void				viz(int flag, t_stack **a, t_stack **b);
 **	stack_ops.c
 */
 
+void				free_stack(t_stack **head);
 t_stack				*stack_fill(char **arg);
 t_stack				*create_node(int num);
 void				add_tail_node(t_stack **stack, t_stack *node);

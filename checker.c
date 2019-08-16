@@ -6,7 +6,7 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/01 15:29:22 by jhansen           #+#    #+#             */
-/*   Updated: 2019/08/16 12:48:02 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/08/16 14:32:32 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,8 @@ void	execute(char **argv)
 	start_process(&stacka, &stackb, flag);
 	validate(flag, &stacka, &stackb);
 	ft_array_free(array);
+	free_stack(&stacka);
+	free_stack(&stackb);
 }
 
 int		main(int argc, char **argv)
