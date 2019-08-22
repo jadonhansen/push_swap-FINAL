@@ -6,7 +6,7 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/03 10:38:41 by jhansen           #+#    #+#             */
-/*   Updated: 2019/08/16 13:54:28 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/08/22 11:21:49 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define PUSH_SWAP_H
 
 # define MAX 2147483647
-# define MIN -2147483647
+# define MIN -2147483648
 # include "./libft/libft.h"
 # include "./get_next_line/get_next_line.h"
 # include <stdlib.h>
