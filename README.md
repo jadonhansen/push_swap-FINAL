@@ -8,5 +8,5 @@ which is determined by the algorithm.
 
 TIP: Use the following flags:
 "-c" to obtain a count of sorting actions.
-"-v" to visualize errors and the "-" flag in colour.
-"-r" to visualize the stacks being sorted.
+"-r" to visualize errors and the "-v" flag in colour.
+"-v" to visualize the stacks being sorted.
